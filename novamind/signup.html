@@ -4,9 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="./signup.html">
+    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="./css/animaciones.css">
+
+    <link rel="icon" href="./img/LOGO NOVAMIND-ROBOT.ico">
 </head>
 <body>
-    
+    <div class="signup-container">
+        <div class="welcome-section">
+            <h1><span>NOVI</span> TE DA LA BIENVENIDA</h1>
+            <img src="./img/register.jpeg" alt="">
+        </div>
+        <div class="form-section">
+            <a href="./index.html"><img src="./img/Logo-Nombre.png" alt=""></a>
+            <h2>Crea una <span>Cuenta</span></h2>
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="Nombre" required>
+                    <input type="text" placeholder="Nombre de usuario" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Apellido paterno" required>
+                    <input type="text" placeholder="Apellido materno" required>
+                </div>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <input type="password" placeholder="Confirmar contraseña" required>
+
+                <label for="birthday">Fecha de nacimiento</label>
+                <div class="birthday">
+                    <select name="day" id="day"></select>
+                    <select name="month" id="month"></select>
+                    <select name="year" id="year"></select>
+                </div>
+
+                <!--SCRPT FECHA DE NACIMIENTO-->
+                <script>
+                    // Rellenar el select de días (1 al 31)
+                    const daySelect = document.getElementById("day");
+                    for (let day = 1; day <= 31; day++) {
+                        let option = document.createElement("option");
+                        option.value = day;
+                        option.textContent = day;
+                        daySelect.appendChild(option);
+                    }
+                
+                    // Rellenar el select de meses (1 al 12)
+                    const monthSelect = document.getElementById("month");
+                    const months = [
+                        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                    ];
+                    for (let month = 1; month <= 12; month++) {
+                        let option = document.createElement("option");
+                        option.value = month;
+                        option.textContent = months[month - 1]; // Los meses son indexados desde 0
+                        monthSelect.appendChild(option);
+                    }
+                
+                    // Rellenar el select de años (desde el año actual hasta 1930)
+                    const yearSelect = document.getElementById("year");
+                    const currentYear = new Date().getFullYear();
+                    const startYear = 1930; // Puedes ajustar este valor si necesitas un año mínimo diferente
+                    for (let year = currentYear; year >= startYear; year--) {
+                        let option = document.createElement("option");
+                        option.value = year;
+                        option.textContent = year;
+                        yearSelect.appendChild(option);
+                    }
+                </script>
+
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="offers" name="offers">
+                    <label for="offers">Quiero recibir ofertas especiales y consejos de aprendizaje</label>
+                </div>
+
+                <button type="submit" class="signup-btn">Registrarse</button>
+
+                <div id="justify">
+                    <p>Al registrarte en NovaMind, aceptas nuestros <a href="#">Términos</a> y <a href="#">Políticas de Privacidad</a>.</p>
+                </div>
+
+                <div id="center">
+                    <p>¿Ya tienes una cuenta? <a href="./login.html">Iniciar Sesión</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

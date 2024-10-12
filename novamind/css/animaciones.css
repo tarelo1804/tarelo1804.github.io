@@ -1,0 +1,44 @@
+@keyframes slideInLeft{
+    from{
+        transform: translateX(-300px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px); /* Mueve hacia abajo 20px */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(-20px); /* Empieza ligeramente a la izquierda */
+    }
+    50% {
+        transform: translateX(20px); /* Se mueve ligeramente a la derecha */
+    }
+    100% {
+        transform: translateX(-20px); /* Regresa a la posición original */
+    }
+}
+
+
+/*PRUEBAAA*/
+h1{
+    /*animation-name: slideInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-duration: normal;
+    animation-fill-mode: none;*/
+}
