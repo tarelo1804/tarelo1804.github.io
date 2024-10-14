@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color:  #1F2833;
+}
 /* Sección 1 */
 .section1 {
     display: flex;
@@ -46,6 +49,7 @@
     font-weight: 1000;
     text-transform: uppercase;
     text-align: center;
+    margin-top: 20px;
 }
 .flex-content > #text-content > h1 > span{
     color: #45A29E;
@@ -126,7 +130,7 @@
     justify-content: center;
     margin-left: 100px;
     margin-right: -100px;
-    animation: moveUpDown 8s ease-in-out infinite;
+    animation: moveUpDown 5s ease-in-out infinite;
 }
 .circle {
     width: 250px;

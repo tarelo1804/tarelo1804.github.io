@@ -20,12 +20,12 @@ body{
 .welcome-section {
     width: 50%;
     position: relative;
-    animation: moveLeftRight 10s ease-in-out infinite
-    /*transition: transform 2s ease; Transición suave */
+    /*animation: moveLeftRight 10s ease-in-out infinite*/
+    transition: transform 2s ease; 
 }
-/*.welcome-section:hover{
-    transform: translateY(-20px);
-}*/
+.welcome-section:hover{
+    transform: translate(50px);
+}
 .welcome-section > img {
     top: 0;
     left: 0;

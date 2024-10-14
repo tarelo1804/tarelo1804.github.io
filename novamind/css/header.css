@@ -6,7 +6,7 @@
 header {
     background-color: #1F2833;
     padding: 20px;
-    height: 70px;
+    height: 50px;
     font-family: "League Spartan", sans-serif;
     font-size: 1.7rem;
 }
@@ -19,22 +19,18 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
+    padding: 0 50px;
 } 
-.nav ul {
+#menu {
     display: flex;
     list-style: none;
     gap: 20px;
-    align-items: center;
-    justify-content: center;
 }
-
-.nav ul li {
+#menu > li {
     margin-right: 20px;
 }
 
-.nav ul li a {
+#menu > li > a {
     color: #FFFFFF;
     text-decoration: none;
 }
@@ -44,17 +40,17 @@ header {
     border-radius: 5px;
     text-align: center;
 }
-.nav ul li a.login{
+#menu > li > a.login{
     color: black;
     font-weight: 500;
 }
-.nav ul li a.login:hover{
+#menu > li > a.login:hover{
     background-color: black;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
 }
-.nav ul li a.register {
+#menu > li > a.register {
     background-color: #66FCF1;
     padding: 10px 20px;
     border-radius: 5px;
@@ -62,10 +58,13 @@ header {
     text-align: center;
     font-weight: 500;
 }
-.nav ul li a.register:hover{
+#menu > li > a.register:hover{
     background-color: black;
     padding: 10px 20px;
     border-radius: 5px;
     color: #fff;
     text-align: center;
+}
+#menu > li > a > i{
+    display: none;
 }
