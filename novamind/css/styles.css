@@ -4,6 +4,7 @@
 }
 body{
     background-color:  #1F2833;
+    width: 100%;
 }
 /* Sección 1 */
 .section1 {
@@ -109,10 +110,10 @@ body{
 }
 .content-left > h1 {
     font-size: 4.5rem;
-    font-weight: 1000;
+    font-weight: 800;
     color: white;
     text-align: center;
-    font-family: "Source Code Pro", monospace;
+    font-family: "League Spartan", sans-serif;
     margin-left: -100px;
 }
 .content-left > h1 > span {
@@ -167,6 +168,7 @@ body{
 }
 .section3 > h1{
     font-family: "League Spartan", sans-serif;
+    font-weight: 800;
     font-size: 4.5rem;
     padding-top: 50px;
     color: #ffffff;
@@ -185,9 +187,10 @@ p#text{
 }
 .section3 img {
     margin-top: 20px;
-    height: 70%;
+    height: 60%;
     width: 50%;
     animation: moveLeftRight 8s ease-in-out infinite;
+    margin-bottom: 200px;
 }
 /* Sección 4 */
 .section4 {
@@ -198,9 +201,10 @@ p#text{
 .section4 > h1{
     font-family: "League Spartan", sans-serif;
     font-size: 4.5rem;
-    padding-top: 50px;
+    padding-top: 60px;
     padding-bottom: 20px;
     color: #45A29E;
+    font-weight: 800;
 }
 .section4 > h1 > span{
     color: #ffffff;

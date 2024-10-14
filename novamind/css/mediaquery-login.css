@@ -1,0 +1,35 @@
+/* TABLET */
+@media only screen and (max-width: 768px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100vw; 
+        overflow-x: hidden; 
+  }
+}
+
+/*CELULAR*/
+@media only screen and (max-width: 480px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100vw; 
+        overflow-x: hidden; 
+    }
+    .login-container > .login-box{
+        width: 300px;
+    }
+    input[type="text"]{
+        width: 280px;
+    }
+    input[type="password"]{
+        width: 280px;
+    }
+    .forgot-password{
+        margin-left: 0;
+    }
+    .login-btn {
+        width: 300px;
+    }
+    
+}

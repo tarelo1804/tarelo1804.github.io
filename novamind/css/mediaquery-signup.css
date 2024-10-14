@@ -1,0 +1,60 @@
+/* TABLET */
+@media only screen and (max-width: 768px) {
+}
+
+
+
+/*CELULAR*/
+@media only screen and (max-width: 480px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100vw; 
+        height: auto;
+        overflow-x: hidden; 
+    }
+    .signup-container {
+        flex-direction: column;
+    }
+    .welcome-section {
+        display: none;
+    }
+    .form-section {
+        width: 95%;
+        margin: 0 auto;
+        padding-top: 80px;
+    }
+    .form-section > h2{
+        font-size: 1.8rem;
+        margin-top: -10px;
+        
+    }
+    .input-group {
+        display: block; /* Hacemos que los campos de entrada se apilen */
+    }
+    .input-group > input {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 1rem; 
+    }
+    input[type="email"], input[type="password"] {
+        width: 100%;
+    }
+    .birthday {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .birthday > select {
+        width: 100%;
+    }
+    .signup-btn {
+        width: 100%;
+        padding: 10px;
+    }
+    #justify, #center {
+        text-align: center;
+    }
+    .checkbox-group > label {
+        font-size: 1rem;
+    }
+}

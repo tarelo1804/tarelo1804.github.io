@@ -22,6 +22,7 @@ body{
     position: relative;
     /*animation: moveLeftRight 10s ease-in-out infinite*/
     transition: transform 2s ease; 
+    order: 1;
 }
 .welcome-section:hover{
     transform: translate(50px);
@@ -56,6 +57,7 @@ body{
     margin-right: 150px;
     margin-top: 10px;
     margin-bottom: 10px;
+    order: 2;
 }
 .form-section > a{
     display: flex;
@@ -70,7 +72,6 @@ body{
     margin-bottom: 25px;
 }
 .form-section > h2 {
-    font-size: 24px;
     margin-bottom: 20px;
     color: #fff;
     text-transform: uppercase;
