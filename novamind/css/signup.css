@@ -14,8 +14,8 @@ body{
 .signup-container {
     display: flex;
     background-color: #1F2833;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: auto;
 }
 .welcome-section {
     width: 50%;

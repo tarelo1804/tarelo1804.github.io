@@ -1,11 +1,56 @@
 /* TABLET */
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
     html, body {
         margin: 0;
         padding: 0;
         width: 100vw; 
         overflow-x: hidden; 
-  }
+        height: auto;
+    }
+    .login-box > #top-side > h2{
+        font-size: 3.5rem;
+        text-align: center;
+    }
+    .login-box > #top-side > a > img{
+        width: 200px;
+        height: 80px;
+    }
+    .login-container > .login-box{
+        width: 70vw;
+        height: 750px;
+    }
+    input[type="text"]{
+        width: 700px;
+        height: 25px;
+        font-size: 1.2rem;
+    }
+    input[type="password"]{
+        width: 700px;
+        height: 25px;
+        font-size: 1.2rem;
+    }
+    .forgot-password{
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+    .login-btn {
+        width: 700px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    .other-login-options > p {
+        font-size: 1.5rem;
+    }
+    .line{
+        width: 150px;
+    }
+    .social-login > a > img{
+        width: 100px;
+        height: 100px;
+    }
+    .register-text{
+        font-size: 1.5rem;
+    }
 }
 
 /*CELULAR*/
@@ -15,6 +60,7 @@
         padding: 0;
         width: 100vw; 
         overflow-x: hidden; 
+        height: auto;
     }
     .login-container > .login-box{
         width: 300px;
