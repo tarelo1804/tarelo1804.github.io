@@ -68,3 +68,6 @@ header {
 #menu > li > a > i{
     display: none;
 }
+.nav nav ul #menu{
+    display: none;
+}
