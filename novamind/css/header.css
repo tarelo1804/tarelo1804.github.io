@@ -21,6 +21,9 @@ header {
     align-items: center;
     padding: 0 50px;
 } 
+.nav > nav > a > i{
+    display: none;
+}
 #menu {
     display: flex;
     list-style: none;
@@ -66,8 +69,5 @@ header {
     text-align: center;
 }
 #menu > li > a > i{
-    display: none;
-}
-.nav nav ul #menu{
     display: none;
 }
