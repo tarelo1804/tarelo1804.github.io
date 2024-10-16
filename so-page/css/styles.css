@@ -49,19 +49,19 @@ ul#menu > li{
     margin-left: 30px;
 }
 ul#menu > li > a{
-    background-color: #FF7A8A;
+    background-color:#ffff;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
     font-size: 22px;
     text-decoration: none;
-    color: #F9F9F9;
+    color: #062743;
     font-weight: 1000;
 }
 ul#menu > li > a:hover{
     cursor: pointer;
-    color: #FF7A8A;
-    background-color: #F9F9F9;
+    color: #ffff;
+    background-color: #062743;
 }
 /*INICIO DEL MAIN*/
 main > section#introduccion{
