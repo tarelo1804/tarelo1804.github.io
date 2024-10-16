@@ -189,8 +189,8 @@ p#text{
 }
 .section3 img {
     margin-top: 20px;
-    height: 60%;
-    width: 50%;
+    height: 500px;
+    width: 700px;
     animation: moveLeftRight 8s ease-in-out infinite;
     margin-bottom: 200px;
 }
