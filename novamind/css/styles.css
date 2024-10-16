@@ -81,15 +81,14 @@ body{
     border-radius: 50px;
     border: none;
     text-align: center;
-    margin: 20px auto;
     display: block;
     
 }
-.flex-content > button#no-animation > a > h3{
+.flex-content > button#no-animation > a > h1{
     font-family: "Source Code Pro", monospace;
     font-weight: 700;
     color: black;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 350px;
     height: auto;
 }
@@ -99,7 +98,7 @@ body{
 .flex-content > button#no-animation:hover{
     background-color: #000;
 }
-.flex-content > button#no-animation > a > h3:hover{
+.flex-content > button#no-animation > a > h1:hover{
     color: #fff;
 }
 /* Sección 2 */
@@ -232,8 +231,9 @@ p#text{
 .profile:hover{
     transform: translateY(-20px); /* Mueve el perfil 10px hacia arriba al pasar el cursor */
 }
-.profile > h3{
-    font-size: 2rem;
+.profile > h2{
+    margin-top: 10px;
+    font-size: 1.8rem;
     font-family: "League Spartan", sans-serif;
     font-weight:bold;
     color: #ffffff;
