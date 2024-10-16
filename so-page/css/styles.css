@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "IBM Plex Sans", sans-serif;
+    background-color: #F9F9F9;
+}
+main{
+    margin-top: 90px;
+}
+/*HEADER*/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #062743;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px; 
+    height: 70px;
+    z-index: 1000;
+    box-sizing: border-box; /* Incluir padding dentro del ancho total */
+    overflow: hidden;
+
+}
+nav{
+    display: flex;
+}
+header > div > a > h2 {
+    margin-top: 8px;
+    font-family: "Voltaire", sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #F9F9F9;
+    margin-top: 5%;
+}
+header > div > a{
+    text-decoration: none;
+}
+ul#menu{
+    display: flex;
+    list-style: none;
+    margin-top: 20px;
+}
+ul#menu > li{
+    margin-left: 30px;
+}
+ul#menu > li > a{
+    background-color: #FF7A8A;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 22px;
+    text-decoration: none;
+    color: #F9F9F9;
+    font-weight: 1000;
+}
+ul#menu > li > a:hover{
+    cursor: pointer;
+    color: #FF7A8A;
+    background-color: #F9F9F9;
+}
+/*INICIO DEL MAIN*/
+main > section#introduccion{
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 720px;
+}
+section#introduccion > h3{
+    margin-top: 50px;
+    font-size: 3.5rem;
+    text-align: center;
+    color: #062743;
+    background-color: #FF7A8A;
+    border: 3px solid #F9F9F9; /* Borde de color alrededor */
+    padding: 10px; /* Espacio entre el texto y el borde */
+    border-radius: 10px; /* Bordes redondeados (opcional) */
+    text-transform: uppercase;
+}
+.estilo{
+    font-style: normal;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    margin-left: 110px;
+    margin-right: 110px;
+}
+.gif{
+    width: 600px;
+    height: 400px;
+    display: block;
+    margin: 20px auto;
+}
+/*Segunda seccion*/
+.secundaria{
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    height: 720px;
+  }
+  h2#tema{
+    padding-top: 150px;
+    font-family: 'Voltaire';
+    font-size: 4rem;
+    font-weight: 1000;
+  }
+  .contenedor-filas{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    width: 80%;
+    padding-left: 10%;
+  }
+  .contenedor-unidad{
+    flex: 1;
+    margin: 0 15px;
+    text-align: center;
+    transition: transform 2s ease;
+    transition: 0.5s ease-in-out all;
+  }
+  .contenedor-unidad:hover{
+      transform: scale(1.2);
+  }
+  .unidad1, .unidad2{
+    text-align: center;
+  }
+  img{
+    flex-shrink: 0; /* Impedir que la imagen se reduzca de tamaño */
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* Mantener la imagen ajustada sin distorsión */
+  }
+  .prop{
+    margin: 10px;
+  }
+  #nomUnidad{
+    font-family: 'IBM-Bold';
+    font-size: 30px;
+  }
+  #descripcion{
+    font-family:'IBM';
+    font-size: 20px;
+  }

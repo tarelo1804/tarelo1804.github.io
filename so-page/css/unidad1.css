@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    margin-top: 30px;
+    font-family: "IBM Plex Sans", sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+main > h3{
+    margin-top: 120px;
+    font-size: 3rem;
+    font-weight: 1500;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #062743;
+    background-color: #FF7A8A;
+    border: 3px solid #F9F9F9; /* Borde de color alrededor */
+    padding: 10px; /* Espacio entre el texto y el borde */
+    border-radius: 10px; /* Bordes redondeados (opcional) */
+    text-transform: uppercase;
+}
+.principal{
+    width: 100%;
+    height: 720px;
+}
+#seccion1{
+    height: 480px;
+    margin-top: 50px;
+}
+.flex-container{
+    margin-left: 150px;
+    margin-right: 150px;
+    display: flex;
+    align-items: center;
+}
+.principal > section > h3{
+    font-size: 2.2rem;
+    margin-left: 13%;
+    color: #113A5D;
+
+}
+.texto{
+    margin-left: 4%;
+    font-size: 1.3rem;
+    text-align: justify;
+    margin-right: 80px;
+}
+#resaltado{
+    font-weight: bold;
+    color: #FF7A8A;
+}
+.image{
+    margin-top: -30px;
+    width: 500px;
+    height: auto;
+    transition: transform 2s ease;
+}
+.image:hover{
+    transform: translateY(-20px);
+}
+#seccion2{
+    /*background-color: burlywood;*/
+    height: 730px;
+}
+#seccion2 > h3{
+    text-align: center;
+    padding-bottom: 15px;
+    margin: 0;
+    color: #113A5D;
+}
+.flex-container1 {
+    display: flex; /* Usar flexbox para alinear las columnas */
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    align-items: flex-start; /* Alinear en la parte superior */
+    margin: 0 20px; /* Espaciado arriba y abajo */
+}
+
+.column {
+    flex: 1; /* Hacer que las columnas tengan el mismo ancho */
+    padding: 0 20px; /* Espacio interno en las columnas */
+}
+.column ul{
+    list-style-type: none; /*Quitar los puntos de la lista*/
+}
+.item {
+    display: flex; /* Usar flexbox para alinear el contenido dentro de cada elemento */
+    flex-direction: column; /* Alinear el texto y la imagen en columna */
+    margin-bottom: 20px; /* Espacio entre cada item */
+    /*border: 1px solid #ddd; Opcional: agregar borde para distinguir elementos */
+    padding: 10px; /* Espacio interno para los items */
+    border-radius: 5px; /* Opcional: bordes redondeados */
+    background-color: #062743; /* Opcional: color de fondo */
+    height: 260px;
+    border-radius: 80px;
+    transition: 0.5s ease-in-out all;
+}
+.item:hover{
+    transform: scale(1.1);
+}
+#lista{
+    font-size: 1.4rem;
+    margin-top: 10px;
+    text-align: center;
+    color: #FF7A8A;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+}
+.item img {
+    width: 280px; 
+    height: 140px;
+    margin-left: 29%;
+    margin-top: 5px;
+}
+.text {
+    font-size: 1.3rem; 
+    margin-top: 5px; 
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #F9F9F9;
+}
+#seccion3{
+    height: 780px;
+}
+#seccion3 > h3{
+    margin-top: 15px;
+    text-align: center;
+    margin-left: -20px;
+    color: #113A5D;
+}
+#linea{
+    margin-left: 5%;
+    margin-top: 10px;
+}
+#seccion4{
+    height: 720px;
+}
+#seccion4 > h3{
+    padding-top: 20px;
+    text-align: center;
+    margin-left: -20px;
+}
+#video{
+    width: 900px;
+    height: 500px;
+    padding-left: 20%;
+    padding-top: 50px;
+}
+
+
+
+
+

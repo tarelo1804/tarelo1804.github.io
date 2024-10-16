@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 2</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/unidad2.css">
+    <link rel="stylesheet" href="./css/unidad1.css">
+
+    <link rel="stylesheet" href="./img/pinguino (1).ico">
+
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error al cargar el header:', error));
+        }
+
+        window.onload = loadHeader;
+    </script>
+
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main id="main-u2">
+        <h3>Unidad 2: Administración de Procesos y del Procesador</h3>
+        <section class="principal">
+            <!--SECTION 1-->
+            <section id="section1">
+                <h3>¿Qué es un Proceso?</h3>
+                <div class="flex-container">
+                    <img  class="proceso" src="./img/proceso.png" alt="">
+                    <p class="texto">Un <span id="resaltado">Proceso</span> es una instancia de un programa en ejecución.
+                         Es más que solo el código del programa; 
+                        un proceso incluye también el estado actual del programa, 
+                        el uso de la memoria, los recursos asignados y otros datos necesarios para su ejecución. </p>
+                </div>
+            </section>
+
+            <!--SECTION 2-->
+            <section id="section2">
+                <h3>Elementos de un proceso</h3>
+                        <ul id="list">
+                            <li>
+                                <strong id="lista">Código del programa</strong> 
+                                <p id="texto">Texto ejecutable que se está ejecutando.</p>
+                            </li>
+    
+                            <li>
+                                <strong id="lista">Contador de programa</strong>
+                                <p id="texto">La posición actual en la secuencia de instrucciones.</p> 
+                            </li>
+    
+                            <li>
+                                <strong id="lista">Registros de CPU</strong> 
+                                <p id="texto">Contienen datos y direcciones.</p>
+                            </li>
+    
+                            <li>
+                                <strong id="lista">Memoria asignada</strong> 
+                                <p id="texto">Información necesaria para funcionar, como datos en uso o variables.</p>
+                            </li>
+                            <li>
+                                <strong id="lista">Estado del proceso</strong> 
+                                <p id="texto">Indica si está activo, suspendido, en espera, etc.</p>
+                            </li>
+                        </ul>
+            </section>
+
+            <!--SECTION 4-->
+            <section id="section4">
+                <h3>Conceptos básicos</h3>
+                <strong>Bloqueo de Control de Proceso (BCP)</strong>
+                <div class="flex-container">
+                    <p class="texto">El <span id="resaltado">Bloqueo de Control de Proceso (BCP)</span> es una estructura de datos utilizada
+                         por el sistema operativo para almacenar información crítica sobre un proceso en ejecución. 
+                         Incluye detalles como el estado del proceso, el contador de programa, los registros de CPU, 
+                         y la memoria asignada, permitiendo al sistema operativo gestionar la planificación 
+                         y control de procesos de manera eficiente.</p>
+                    <img src="./img/bloqueo.jpg" alt="" class="image">
+                </div>
+            </section>
+
+            <!--SECTION 5-->
+            <section id="section5">
+                <h3>Estados</h3>
+                    <p class="concepto">Los <span id="resaltado">Estados</span> son las fases por las que un
+                    proceso pasa durante su ciclo de vida.
+                    Los principales estados son:</p>
+                    <div class="flex-container3">
+                        <img src="./img/estado.png" alt="">
+                        <ul id="listt">
+                            <li>
+                                <strong id="listaa">Nuevo</strong> 
+                                <p id="textoo">El proceso está siendo creado.</p>
+                            </li>
+    
+                            <li>
+                                <strong id="listaa">Listo</strong>
+                                <p id="textoo">El proceso está preparado para ejecutarse cuando la CPU está disponible.</p> 
+                            </li>
+    
+                            <li>
+                                <strong id="listaa">En Ejecución</strong> 
+                                <p id="textoo">El proceso está sien ejecutado por la CPU.</p>
+                            </li>
+    
+                            <li>
+                                <strong id="listaa">Bloqueado o en Espera</strong> 
+                                <p id="textoo">El proceso está esperando a que ocurra un evento externo.</p>
+                            </li>
+                            <li>
+                                <strong id="listaa">Terminado</strong> 
+                                <p id="textoo">El proceso ha concluido su ejecución.</p>
+                            </li>
+                        </ul>
+                        
+                    </div>
+            </section>
+
+            <!--SECTION 6-->
+            <section id="section6">
+                <h3>Transiciones</h3>
+                    <p class="conceptoo">Las <span id="resaltado">Transiciones</span> son los cambios de un estado a otro.
+                    Estas transiciones son:</p>
+                    <div class="flex-container3">
+                        <ul id="listt">
+                            <li>
+                                <strong id="listaa">Nuevo a Listo</strong> 
+                                <p id="textoo">Cuando el proceso es creado y está listo para ser ejecutado.</p>
+                            </li>
+    
+                            <li>
+                                <strong id="listaa">Listo a Ejecución</strong>
+                                <p id="textoo">Cuando el proceso toma control de la CPU.</p> 
+                            </li>
+    
+                            <li>
+                                <strong id="listaa">Ejecución a Bolqueado</strong> 
+                                <p id="textoo">Cuando el proceso necesita esperar por un recurso o evento.</p>
+                            </li>
+    
+                            <li>
+                                <strong id="listaa">Bloqueado a Listo</strong> 
+                                <p id="textoo">Cuando el evento que el proceso estaba esperando ocurre, y puede volver a cola de listas.</p>
+                            </li>
+                            <li>
+                                <strong id="listaa">Ejecución a Terminado</strong> 
+                                <p id="textoo">Cuando el proceso finaliza su tarea.</p>
+                            </li>
+                        </ul>
+                        <img src="./img/estado.png" alt="">
+                    </div>
+            </section>
+
+            <!--SECTION 7-->
+            <section id="section7">
+                <h3 id="hilo">¿Qué es un Hilo?</h3>
+                <div class="flex-container">
+                    <img  class="proceso" src="./img/hilo.png" alt="">
+                    <p class="texto">Un <span id="resaltado">Los Hilos o Contextos de ejecución </span> son unidades de 
+                    ejecución más pequeñas dentro de un proceso. Cada hilo tiene su propio contexto de ejecución,
+                    que incluye información como el contador de programa, registros y estado.
+                    Sin embargo, los hilos dentro de un mismo proceso comparten recursos como la memoria.</p>
+                </div>
+                <h3 id="sincronizacion">Sincronización entre procesos</h3>
+                <div class="flex-container">
+                    <p class="texto">Es un mecanismo para cordinar la ejecución de procesos o hilos que comparten
+                    recursos, garantizando que no interfieran entre sí. La <span id="resaltado">Sincronización</span> es crucial para evitar
+                    problemas como condiciones de carrera. Los mecanismos más comunes son semáforos, monitores
+                    y cerrojos. </p>
+                    <img  class="proceso" src="./img/sincronizacion.gif" alt="">
+                </div>
+            </section>
+
+            <!--SECTION 8-->
+            <section id="section8">
+                <h3 id="semaforo">¿Qué es un Semáforo?</h3>
+                <p class="texto">Un <span id="resaltado">Semáforo </span> es una variable utilizada
+                para controlar el acceso a recursos compartidos en entornos de múltiples
+                procesos o hilos. Existen dos tipos de hilos:</p>
+                <img id="semaforo_img" src="./img/semaforo.png" alt="">
+
+                <div class="flex-container4">
+                    <ul id="listt">
+                        <li>
+                            <strong id="listaa1">Semáforo Binario</strong> 
+                            <p id="textoo1">Solo tiene dos valores, 0 y 1, y se utiliza para indicar 
+                                si un recurso está disponible o no.</p>
+                        </li>
+
+                        <li>
+                            <strong id="listaa1">Semáforo de Conteo</strong>
+                            <p id="textoo1">Permite que un número específico de proceso accedan simultáneamente a un recurso.</p> 
+                        </li>
+                    </ul>
+                    <img id="sem"  src="./img/semaforooo.webp" alt="">
+                </div>
+            </section>
+
+            <!--SECTION 9 -->
+            <section id="section9">
+                <h3>Administración de Procesos y del Procesador: Mapa Conceptual</h3>
+                <img class="mapa" src="./img/mapaconceptual.png" alt="">
+            </section>
+
+            <!--SECTION 10-->
+            <section id="seccion4">
+                <h3>Video Explicativo: Procesos</h3>
+                <iframe id="video" src="https://www.youtube.com/embed/n6IxKTS2zYs?si=_sxcnVDc-SE_0u4s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+            </section>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 1</title>
+    <link rel="stylesheet" href="./css/animaciones.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/unidad1.css">
+
+    <link rel="stylesheet" href="./img/pinguino (1).ico">
+
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error al cargar el header:', error));
+        }
+
+        window.onload = loadHeader;
+    </script>
+
+</head>
+<body> 
+    <div id="header-placeholder"></div>
+    <main>
+        <h3>Unidad 1: Introducción a los Sistemas Operativos</h3>
+        <section class="principal">
+            <!--SECCION 1-->
+            <section id="seccion1">
+                <h3>¿Qué es un Sistema Operativo?</h3>
+                <div class="flex-container">
+                    <p class="texto">Un <span id="resaltado">sistema operativo (SO)</span> es el software fundamental que gestiona el hardware de una computadora y permite que el usuario interactúe con el sistema de forma sencilla.
+                     Actúa como un intermediario entre los programas y el hardware, permitiendo que las aplicaciones funcionen sin necesidad de conocer los detalles técnicos del equipo. 
+                    Los sistemas operativos controlan tareas como la gestión de archivos, la memoria y los dispositivos de entrada y salida, facilitando el funcionamiento de las aplicaciones.
+                    </p>
+                    <img src="./img/que es.jpg" alt="Sistema Operativo Linux" class="image">
+                </div>
+                
+            </section>
+
+            <!--SECCION 2-->
+            <section id="seccion2">
+                <h3>Conceptos básicos de los SO</h3>
+                <div class="flex-container1">
+                    <div class="column">
+                        <ul>
+                            <li>
+                                <div class="item">
+                                    <strong id="lista">Núcleo (Kernel):</strong>
+                                    <p class="text">Es el corazón del SO. Se encarga de controlar todo el hardware de la computadora, como la memoria, procesador, etc.</p>
+                                    <img src="./img/kernel.png" alt="Kernel">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <strong id="lista">Interfaz de Usuario:</strong>
+                                    <p class="text">Es lo que ves en la pantalla y te permite interactuar con el sistema, como las ventanas y menús.</p>
+                                    <img src="./img/interfaz.webp" alt="Interfaz de Usuario">
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <ul>
+                            <li>
+                                <div class="item">
+                                    <strong id="lista">Gestión de Archivos:</strong>
+                                    <p class="text">Organiza y guarda tus documentos, fotos, y todo tipo de archivos en el disco duro.</p>
+                                    <img src="./img/archivo.jpg" alt="Gestión de Archivos">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <strong id="lista">Gestión de Procesos:</strong>
+                                    <p class="text">Controla todas las tareas que la computadora está haciendo al mismo tiempo.</p>
+                                    <img src="./img/proceso.png" alt="Gestión de Procesos">
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!--SECCION 3-->
+            <section id="seccion3">
+                <h3>Evolución: Línea del Tiempo</h3>
+                <iframe id="linea" src="./documentos/Linea del Tiempo SO (pagina).pdf" width="90%" height="670px" style="border: none;">
+                    Este navegador no soporta PDFs. Por favor descarga el PDF <a href="./documentos/Linea del Tiempo SO (pagina).pdf">aquí</a>.
+                </iframe>
+            </section>
+
+            <!--SECCION 4-->
+            <section id="seccion4">
+                <h3>Video Explicativo: Historia de los Sistemas Operativos</h3>
+                <iframe id="video" src="https://www.youtube.com/embed/O-ZHvNiWKeU?si=jNBELw8amGiAnViO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+            </section>
+            
+            
+        </section>
+    </main>
+
+</body>
+</html>
