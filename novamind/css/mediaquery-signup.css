@@ -44,6 +44,7 @@
     }
     .input-group {
         display: block; 
+        font-size: 1.5rem;
     }
     .input-group > input {
         width: 100%;
@@ -53,14 +54,13 @@
         width: 100%;
         font-size: 1.5rem;
     }
-    input[type="email"] {
+    #confirmPassword, #password {
         width: 100%;
         font-size: 1.5rem;
     }
     .birthday {
         flex-direction: column;
         gap: 15px;
-        
     }
     .birthday > select {
         width: 100%;

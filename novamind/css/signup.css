@@ -31,7 +31,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 102vh;
     object-fit: cover;   
 }
 .welcome-section > h1 {
@@ -91,12 +91,10 @@ body{
 }
 .form-section > form > label{
     color: #fff;
-    font-family: "League Spartan", sans-serif;
-    margin-bottom: 10px;
+    font-family: "League Spartan", sans-serif;      
 }
 .password-group {
     position: relative;
-    margin-bottom: 1rem;
 }
 
 .eye-icon {
@@ -111,22 +109,16 @@ body{
     display: flex;
     justify-content: space-between;
 }
-input[type="password"] {
+input[type="password"], input[type="text"], input[type="email"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: none;
     border-radius: 5px;
+    font-size: 1rem;
 }
 .input-group > input {
     width: 48%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-}
-input[type="email"] {
-    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: none;

@@ -88,3 +88,4 @@ document.addEventListener("DOMContentLoaded", function () {
         option.textContent = year;
         yearSelect.appendChild(option);
     }
+
