@@ -74,10 +74,8 @@ header {
     text-align: center;
 }
 /* Asegurar que los enlaces no tengan subrayado */
-.nav > a,
 #menu-mobile > li > a,
-.mobile-nav a,
-a i {
+.mobile-nav a {
     text-decoration: none;
     text-transform: none;
 }
@@ -90,10 +88,6 @@ a i {
 #menu-mobile > li > a{
     text-decoration: none;
     color: #FFFFFF;
-}
-#menu-toggle{
-    text-decoration: none;
-    display: none;
 }
 #open-menu, #close-menu {
     display: none;
