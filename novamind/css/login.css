@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-    background-image: url('../img/login.png');
+    background-image: url('../img/login.webp');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh; 
@@ -109,6 +109,7 @@ input[type="password"] {
     color: #fff;
     margin: 20px 0;
     font-size: 1rem;
+    height: auto;
 }
 .social-login > a{
     text-decoration: none;
