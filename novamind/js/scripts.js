@@ -1,27 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const nav = document.getElementById('nav');
-    const abrir = document.getElementById('open-menu');
-    const cerrar = document.getElementById('close-menu');
-
-    if (abrir) {
-        abrir.addEventListener('click', () => {
-            nav.classList.add("visible");
-        });
-    } else {
-        console.log("El elemento con id 'open-menu' no se encontró.");
-    }
-
-    if (cerrar) {
-        cerrar.addEventListener('click', () => {
-            nav.classList.remove("visible");
-        });
-    } else {
-        console.log("El elemento con id 'close-menu' no se encontró.");
-    }
-});
-
-
-
 /*MOSTRAR Y OCULTAR CONTRASEÑA*/
 document.addEventListener("DOMContentLoaded", function () {
     // Toggle para la contraseña
@@ -50,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         this.innerHTML = type === "password" ? '<i class="bi bi-eye"></i>' : '<i class="bi bi-eye-slash"></i>';
     });
 });
-
 
 
 
@@ -88,4 +63,4 @@ document.addEventListener("DOMContentLoaded", function () {
         option.textContent = year;
         yearSelect.appendChild(option);
     }
-
+    

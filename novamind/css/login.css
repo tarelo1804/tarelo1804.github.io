@@ -119,6 +119,7 @@ input[type="password"] {
     height: 50px;
     border-radius: 50%;
     margin: 0 10px;
+    object-fit: cover;
 }
 .other-login-options {
     display: flex;
