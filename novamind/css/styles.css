@@ -6,6 +6,99 @@ body{
     background-color:  #1F2833;
     width: 100%;
 }
+header {
+    background-color: #1F2833;
+    padding: 20px;
+    height: 50px;
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.7rem;
+}
+.logo > a > img{
+    width: 120px;
+    height: 100px;
+    margin-top: -15px;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+} 
+#menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+#menu > li {
+    margin-right: 20px;
+}
+
+#menu > li > a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.login{
+    background-color: #66FCF1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+#menu > li > a.login{
+    color: black;
+    font-weight: 500;
+}
+#menu > li > a.login:hover{
+    background-color: black;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+#menu > li > a.register {
+    background-color: #66FCF1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+}
+#menu > li > a.register:hover{
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+}
+/* Asegurar que los enlaces no tengan subrayado */
+.nav > a,
+#menu-mobile > li > a,
+.mobile-nav a,
+a i {
+    text-decoration: none;
+    text-transform: none;
+}
+/* Ocultar el menú móvil por defecto */
+#menu-mobile {
+    display: flex;
+    list-style-type: none; 
+    gap: 1px;
+}
+#menu-mobile > li > a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+#menu-toggle{
+    text-decoration: none;
+    display: none;
+}
+#open-menu, #close-menu {
+    display: none;
+}
+.mobile-nav {
+    display: none;
+}
+
+
+
 /* Sección 1 */
 .section1 {
     display: flex;

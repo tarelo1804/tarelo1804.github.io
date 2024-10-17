@@ -1,21 +1,21 @@
-fetch('header.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('header-container').innerHTML = data;
-})
-.catch(error => console.log('Error al cargar el header:', error));
-
-
-
-
-
-//Boton - Icono de la barra
 document.addEventListener("DOMContentLoaded", function() {
-    const menu = document.getElementById("menu");
-    const menuToggle = document.getElementById("barra");
+    const nav = document.getElementById('nav');
+    const abrir = document.getElementById('open-menu');
+    const cerrar = document.getElementById('close-menu');
 
-    menuToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        menu.classList.toggle('show'); // Alterna la clase 'show' para mostrar/ocultar el menú
-    });
+    if (abrir) {
+        abrir.addEventListener('click', () => {
+            nav.classList.add("visible");
+        });
+    } else {
+        console.log("El elemento con id 'open-menu' no se encontró.");
+    }
+
+    if (cerrar) {
+        cerrar.addEventListener('click', () => {
+            nav.classList.remove("visible");
+        });
+    } else {
+        console.log("El elemento con id 'close-menu' no se encontró.");
+    }
 });
