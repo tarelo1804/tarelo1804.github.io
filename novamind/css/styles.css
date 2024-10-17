@@ -222,7 +222,7 @@ p#text{
     margin-left: 50px;
     margin-right: 50px;
     height: 500px;
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
 }
 .profile {
@@ -236,11 +236,11 @@ p#text{
     transform: translateY(-20px); /* Mueve el perfil 10px hacia arriba al pasar el cursor */
 }
 .profile > h2{
-    margin-top: 10px;
     font-size: 1.8rem;
     font-family: "League Spartan", sans-serif;
     font-weight:bold;
     color: #ffffff;
+    min-width: 30px;
 }
 .profile > img {
     border-radius: 50%;
