@@ -6,3 +6,16 @@ fetch('header.html')
 .catch(error => console.log('Error al cargar el header:', error));
 
 
+
+
+
+//Boton - Icono de la barra
+document.addEventListener("DOMContentLoaded", function() {
+    const menu = document.getElementById("menu");
+    const menuToggle = document.getElementById("barra");
+
+    menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        menu.classList.toggle('show'); // Alterna la clase 'show' para mostrar/ocultar el menú
+    });
+});
