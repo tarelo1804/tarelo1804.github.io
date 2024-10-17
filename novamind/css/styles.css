@@ -114,7 +114,8 @@ a i {
     height: 550px;
     margin-top: -120px;
     margin-left: 140px;
-    animation: moveLeftRight 8s ease-in-out infinite
+    animation: moveLeftRight 8s ease-in-out infinite;
+    display: block;
 }
 .flex-content {
     margin-left: 10px;
