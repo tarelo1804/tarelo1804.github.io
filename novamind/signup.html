@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/mediaquery-signup.css">
 
     <link rel="icon" href="./img/LOGO NOVAMIND-ROBOT.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <div class="signup-container">
@@ -30,55 +31,27 @@
                     <input type="text" placeholder="Apellido materno" required>
                 </div>
                 <input type="email" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <input type="password" placeholder="Confirmar contraseña" required>
+                
+                <div class="password-group">
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <span id="togglePassword" class="eye-icon"><i class="bi bi-eye"></i></span>
+                </div>
+                
+                <div class="password-group">
+                    <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required>
+                    <span id="toggleConfirmPassword" class="eye-icon"><i class="bi bi-eye"></i></span>
+                </div>
 
                 <label for="birthday">Fecha de nacimiento</label>
                 <div class="birthday">
-                    <label for="day" id="day"></label>
+                    <!--<label for="day" id="day"></label>-->
                     <select name="day" id="day"></select>
-                    <label for="month" id="month"></label>
+                    <!--<label for="month" id="month"></label>-->
                     <select name="month" id="month"></select>
-                    <label for="year" id="year"></label>
+                    <!--<label for="year" id="year"></label>-->
                     <select name="year" id="year"></select>
+                    
                 </div>
-
-                <!--SCRPT FECHA DE NACIMIENTO-->
-                <script>
-                    // Rellenar el select de días (1 al 31)
-                    const daySelect = document.getElementById("day");
-                    for (let day = 1; day <= 31; day++) {
-                        let option = document.createElement("option");
-                        option.value = day;
-                        option.textContent = day;
-                        daySelect.appendChild(option);
-                    }
-                
-                    // Rellenar el select de meses (1 al 12)
-                    const monthSelect = document.getElementById("month");
-                    const months = [
-                        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-                    ];
-                    for (let month = 1; month <= 12; month++) {
-                        let option = document.createElement("option");
-                        option.value = month;
-                        option.textContent = months[month - 1]; // Los meses son indexados desde 0
-                        monthSelect.appendChild(option);
-                    }
-                
-                    // Rellenar el select de años (desde el año actual hasta 1930)
-                    const yearSelect = document.getElementById("year");
-                    const currentYear = new Date().getFullYear();
-                    const startYear = 1930; // Puedes ajustar este valor si necesitas un año mínimo diferente
-                    for (let year = currentYear; year >= startYear; year--) {
-                        let option = document.createElement("option");
-                        option.value = year;
-                        option.textContent = year;
-                        yearSelect.appendChild(option);
-                    }
-                </script>
-
 
                 <div class="checkbox-group">
                     <input type="checkbox" id="offers" name="offers">
@@ -97,5 +70,6 @@
             </form>
         </div>
     </div>
+    <script src="./js/scripts.js"></script>
 </body>
 </html>
