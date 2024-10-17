@@ -30,15 +30,3 @@
         transform: translateX(-20px); /* Regresa a la posición original */
     }
 }
-
-
-/*PRUEBAAA*/
-h1{
-    /*animation-name: slideInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-duration: normal;
-    animation-fill-mode: none;*/
-}
