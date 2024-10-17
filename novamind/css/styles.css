@@ -167,20 +167,25 @@ a i {
     border: none; /* Sin borde */
     text-align: center;
     display: block; /* Hace que el botón ocupe todo el ancho disponible */
-    padding: 15px; /* Aumenta el área tocable y mejora la legibilidad */
+    /*padding: 15px; /* Aumenta el área tocable y mejora la legibilidad *//*
     font-size: 18px; /* Asegúrate de que el texto sea legible */
     outline: none; /* Elimina el contorno que aparece al hacer clic */
-    
+    padding: 12px 24px; /* Aumenta el tamaño del botón */
+    font-size: 16px; /* Tamaño de la fuente */
+    margin-bottom: 16px; /* Espacio debajo del botón */
+
 }
 .flex-content > button#no-animation > a > h1{
     font-family: "Source Code Pro", monospace; /* Fuente definida */
     font-weight: 700; /* Peso de la fuente */
     color: black; /* Color del texto */
-    font-size: 1.5rem; /* Aumenta el tamaño de fuente para mejor legibilidad */
+    /*font-size: 1.5rem; /* Aumenta el tamaño de fuente para mejor legibilidad *//*
     line-height: 1.2; /* Mejora la legibilidad */
     text-align: center; /* Centra el texto */
     margin: 0; /* Elimina márgenes para evitar problemas de alineación */
     padding: 0; /* Asegúrate de que no haya padding adicional */
+    margin-top: 5px; /* Espacio encima del encabezado */
+    font-size: 24px; /* Tamaño de la fuente */
 }
 .flex-content > button#no-animation > a {
     text-decoration: none;
