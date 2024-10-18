@@ -110,9 +110,10 @@
     input[type="password"] {
         width: 100%; 
         max-width: 280px; 
+        height:10px;
     }
     .forgot-password{
-        margin-left: 0;
+        margin-left: 15px;
     }
     .login-btn {
         width: 300px;
@@ -121,8 +122,8 @@
         position: absolute;
         cursor: pointer;
         font-size: 1.5rem;
-        margin-top: 11px;
-        right: -20px;
+        margin-top: 14px;
+        right: -10px;
         
     }
     
