@@ -109,8 +109,6 @@ header {
     color: white;
 }
 .content > img {
-    width: 500px; 
-    height: 550px;
     margin-top: -120px;
     margin-left: 140px;
     animation: moveLeftRight 8s ease-in-out infinite;
@@ -123,7 +121,8 @@ header {
     flex-direction: column; 
     justify-content: center; 
     align-items: center;
-    height: 670px;
+    height: 580px;
+    width: 600px;
     margin-top: -120px;
 }
 #text-content{
