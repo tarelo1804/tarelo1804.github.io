@@ -200,9 +200,7 @@
         height: 100%;
     }
     .signup-container {
-        display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         min-height: 100vh;
         overflow-y: auto;
     }
@@ -216,14 +214,12 @@
     .form-section {
         width: 95%;
         margin: 0 auto;
-        padding-top: 50px;
+        padding-top: 30px;
         height: auto;
         justify-content: center;
     }
     .form-section > h2{
         font-size: 1.8rem;
-
-        
     }
     #center{
         height: auto;
@@ -240,7 +236,6 @@
     }
     input[type="email"], input[type="password"] {
         width: 100%;
-        
     }
     .birthday {
         flex-direction: column;
