@@ -97,14 +97,14 @@ header {
 }
 
 
-
 /* Sección 1 */
 .section1 {
     display: flex;
     align-items: center;
     justify-content: space-around; 
-    height: 100vh; 
+    height: 100%; 
     padding: 20px;
+    padding-top: 150px;
     background-color:  #1F2833;
     color: white;
 }
