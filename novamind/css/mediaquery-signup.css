@@ -191,7 +191,7 @@
     }
 }
 /*CELULAR*/
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 539px) {
     html, body {
         margin: 0;
         padding: 0;
