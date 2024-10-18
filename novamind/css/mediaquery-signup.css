@@ -202,8 +202,9 @@
     .signup-container {
         display: flex;
         flex-direction: column;
-        height: auto;
+        justify-content: flex-start;
         min-height: 100vh;
+        overflow-y: auto;
     }
     .welcome-section {
         display: none;
@@ -217,10 +218,11 @@
         margin: 0 auto;
         padding-top: 50px;
         height: auto;
+        justify-content: center;
     }
     .form-section > h2{
         font-size: 1.8rem;
-        margin-top: -10px;
+
         
     }
     #center{
