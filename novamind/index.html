@@ -3,29 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="descripcion de la pagina" content="NovaMind te abre las puertas al mundo digital. Aprende sobre tecnología y computadoras de una manera fácil y divertida para todas las edades.">
+    <meta name="description" content="NovaMind te abre las puertas al mundo digital. Aprende sobre tecnología y computadoras de una manera fácil y divertida para todas las edades.">
     <title>NovaMind</title>
-    <link rel="preload" href="./css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./css/styles.css"></noscript>
 
-    <link rel="preload" href="./css/animaciones.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./css/animaciones.css"></noscript>
+      <!-- CSS crítico en la etiqueta <style> -->
+        <style>
+            /* Aquí va el CSS crítico que afecta la primera pantalla visible */
+            * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #1F2833;
+        }
+        header {
+            background-color: #1F2833;
+            padding: 20px;
+            height: 50px;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.7rem;
+        }
+        .logo > a > img {
+            width: 120px;
+            height: 100px;
+            margin-top: -15px;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+        #menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        #menu > li > a {
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+        .section1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 100vh;
+            padding: 20px;
+            background-color: #1F2833;
+            color: white;
+        }
+        .flex-content > #text-content > h1 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 1000;
+            text-transform: uppercase;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .flex-content > #text-content > h1 > span {
+            color: #45A29E;
+        }
+        .flex-content > #text-content > p {
+            font-family: 'Source Code Pro', monospace;
+            background-color: black;
+            font-size: 1.7rem;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }  
+        </style>
+    
+         
+    <!-- Diferir la carga del CSS no crítico -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
 
-    <link rel="preload" href="./css/mediaquery-index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./css/mediaquery-index.css"></noscript>
-
-    <!-- Bootstrap Icons -->
+    <!-- Preload de fuentes e íconos -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap"></noscript>
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
 
-    <!-- Font Awesome -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
-
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap"></noscript>
-
-    <!--ICONO-->
+    <!-- Favicon -->
     <link rel="icon" href="./img/LOGO NOVAMIND-ROBOT.ico">
 
 </head>
