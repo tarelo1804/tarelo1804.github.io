@@ -8,9 +8,6 @@
     <link rel="preload" href="./css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="./css/styles.css"></noscript>
 
-    <link rel="preload" href="./css/animaciones.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./css/animaciones.css"></noscript>
-
     <link rel="preload" href="./css/mediaquery-index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="./css/mediaquery-index.css"></noscript>
 
@@ -38,16 +35,6 @@
 body{
     background-color:  #1F2833;
     
-}
-@font-face {
-    font-family: 'League Spartan';
-    src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&');
-    font-display: swap; 
-}
-@font-face {
-    font-family: 'Source Code Pro';
-    src: url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;');
-    font-display: swap; 
 }
 header {
     background-color: #1F2833;
@@ -236,6 +223,9 @@ header {
     <!-- Diferir la carga del CSS no crítico -->
     <link rel="stylesheet" href="./css/styles.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="./css/styles.css"></noscript>
+
+    <link rel="stylesheet" href="./css/mediaquery-index.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="./css/mediaquery-index.css"></noscript>
 
 
 

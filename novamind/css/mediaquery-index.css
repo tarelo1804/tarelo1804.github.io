@@ -94,7 +94,7 @@
     .flex-content > #text-content > h1{
         font-size: 5rem;
         width: 100%;
-        margin-top: 60px;
+        margin-top: 20px;
     }
     br {
         display: none; 
@@ -115,13 +115,18 @@
         
     }
     .flex-content > button#no-animation {
+        margin-top: 20px;
         width: 50%;
+        height: 20px;
+        min-width: 100px; 
+        min-height: 80px;
     }
     body::-webkit-scrollbar{
         display: none;
     }
-    .flex-content > button#no-animation > a > h3 {
-        font-size: 2rem; 
+    .flex-content > button#no-animation > a > h1 {
+        font-size: 2.2rem; 
+        margin-top: -2px;
     }
     /*Seccion 2*/
     .section2 {
@@ -263,7 +268,7 @@
     .profiles {
         display: flex; 
         flex-direction: column;
-        gap: 10px; 
+        gap: 50px; 
         width: 100vw; 
         padding: 0 20px; 
         animation: none;
@@ -293,6 +298,17 @@
     .texto > p {
         font-size: 2.2rem;
         width: 425px;
+    }
+    .flex-content > button#no-animation {
+        margin-top: 20px;
+        width: 50%;
+        height: 20px;
+        min-width: 100px; 
+        min-height: 80px;
+    }
+    .flex-content > button#no-animation > a > h1 {
+        font-size: 2rem; 
+        
     }
 }
 
@@ -399,17 +415,22 @@
         margin-top: -100px;
     }
     .flex-content > #text-content > p {
-        font-size: 1.5rem; 
+        font-size: 1.3rem;
+        margin-bottom: 15px; 
         padding: 10px;
     }
 
     .flex-content > button#no-animation {
-        width: 80%;
-        height: 8%; 
+        margin-top: 20px;
+        width: 50%;
+        height: 20px;
+        min-width: 100px; 
+        min-height: 55px;
     }
 
-    .flex-content > button#no-animation > a > h3 {
+    .flex-content > button#no-animation > a > h1 {
         font-size: 1.5rem; 
+        margin-top: -3px;
     }
     body::-webkit-scrollbar{
         display: none;
@@ -481,7 +502,7 @@
         align-items: center;
         text-align: center;
         /*background-color: #b266b9;*/
-        height: auto;
+        height: 100%;
     }
     .section4 > h1{
         font-size: 3rem;
@@ -494,7 +515,7 @@
     }
     .profile{
         flex-direction: column;
-        transition: none
+        transition: none;
     }
     .profile > h3{
         font-size: 1.7rem;
