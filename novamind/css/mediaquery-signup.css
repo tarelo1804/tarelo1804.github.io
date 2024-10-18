@@ -223,6 +223,9 @@
     form{
         height: 100vh;
     }
+    #center{
+        height: 100%;
+    }
     .input-group {
         display: block; /* Hacemos que los campos de entrada se apilen */
     }
