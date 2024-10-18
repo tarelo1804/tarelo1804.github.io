@@ -220,6 +220,9 @@
         margin-top: -10px;
         
     }
+    form{
+        height: 100%;
+    }
     .input-group {
         display: block; /* Hacemos que los campos de entrada se apilen */
     }
