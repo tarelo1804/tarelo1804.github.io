@@ -111,8 +111,11 @@ header {
 .content > img {
     margin-top: -120px;
     margin-left: 140px;
-    animation: moveLeftRight 8s ease-in-out infinite;
     display: block;
+    transition: transform 2s ease; 
+}
+.content > img:hover{
+    transform: translate(50px);
 }
 .flex-content {
     margin-left: 10px;
@@ -214,7 +217,7 @@ header {
     justify-content: center;
     margin-left: 100px;
     margin-right: -100px;
-    animation: moveUpDown 5s ease-in-out infinite;
+   
 }
 .circle {
     width: 250px;
