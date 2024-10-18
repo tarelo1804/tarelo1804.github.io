@@ -125,9 +125,7 @@ header {
     width: 600px;
     margin-top: -120px;
 }
-#text-content{
-    text-align: center;
-}
+
 .flex-content > #text-content> h1 {
     font-family: "League Spartan", sans-serif;
     font-size: 4.5rem;
