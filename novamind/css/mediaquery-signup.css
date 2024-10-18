@@ -197,9 +197,10 @@
         padding: 0;
         width: 100vw; 
         overflow-x: hidden; 
-        height: 100vh;
+        height: 100%;
     }
     .signup-container {
+        display: flex;
         flex-direction: column;
         height: auto;
         min-height: 100vh;
@@ -215,7 +216,7 @@
         width: 95%;
         margin: 0 auto;
         padding-top: 50px;
-        height: 100%;
+        height: auto;
     }
     .form-section > h2{
         font-size: 1.8rem;
@@ -225,7 +226,7 @@
     #center{
         height: auto;
         margin-top: 15px;
-        padding-bottom: 40px;
+        padding-bottom: 20px;
     }
     .input-group {
         display: block; /* Hacemos que los campos de entrada se apilen */
