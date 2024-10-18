@@ -94,7 +94,10 @@
         padding: 0;
         width: 100vw; 
         overflow-x: hidden; 
-        height: auto;
+        height: 100%;
+    }
+    .login-container{
+        height: 100%;
     }
     .login-container > .login-box{
         width: 300px;
