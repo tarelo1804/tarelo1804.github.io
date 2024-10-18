@@ -209,6 +209,7 @@
     }
     .form-section > a > img{
         width: 40%;
+        padding-top: 7px;
     }
     .form-section {
         width: 95%;
@@ -222,10 +223,9 @@
         
     }
     #center{
-        height: 100vh;
+        height: auto;
         margin-top: 15px;
         padding-bottom: 40px;
-        background-color: aquamarine;
     }
     .input-group {
         display: block; /* Hacemos que los campos de entrada se apilen */
