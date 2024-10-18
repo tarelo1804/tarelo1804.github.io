@@ -213,6 +213,7 @@
         width: 95%;
         margin: 0 auto;
         padding-top: 50px;
+        height: 100%;
     }
     .form-section > h2{
         font-size: 1.8rem;
