@@ -8,7 +8,12 @@ body{
 }
 @font-face {
     font-family: 'League Spartan';
-    src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+    src: url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&');
+    font-display: swap; 
+}
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;');
     font-display: swap; 
 }
 header {
@@ -96,6 +101,12 @@ header {
     display: none;
 }
 
+
+
+img {
+    width: 100%;
+    height: auto;
+}
 
 
 /* Sección 1 */
