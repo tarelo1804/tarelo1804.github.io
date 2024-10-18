@@ -97,16 +97,19 @@
         height: 100%;
     }
     .login-container{
+        display: flex;
         height: 100%;
+        align-items: center;
     }
     .login-container > .login-box{
-        width: 300px;
+        width: 80%;
+        max-width: 400px;
+        margin: 0 auto;
     }
-    input[type="text"]{
-        width: 280px;
-    }
-    input[type="password"]{
-        width: 280px;
+    input[type="text"],
+    input[type="password"] {
+        width: 100%; 
+        max-width: 280px; 
     }
     .forgot-password{
         margin-left: 0;
