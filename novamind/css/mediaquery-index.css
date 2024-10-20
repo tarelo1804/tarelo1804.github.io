@@ -413,11 +413,14 @@
     .flex-content > #text-content> h1 {
         font-size: 3rem;
         margin-top: -100px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
     .flex-content > #text-content > p {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         margin-bottom: 15px; 
         padding: 10px;
+    
     }
 
     .flex-content > button#no-animation {
@@ -484,10 +487,14 @@
     .section3 > h1{
         font-size: 3rem;
         text-transform: uppercase;
+        margin-left: 7px;
+        margin-right: 7px;
     }
     p#text{
         font-size: 1.5rem;
         padding-top: 2px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
     .section3 > img{
         animation:none;
