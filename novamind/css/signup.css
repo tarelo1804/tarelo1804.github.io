@@ -10,6 +10,7 @@ body{
     align-items: center;
     height: 100%;
     overflow: hidden;
+    font-family: "League Spartan", sans-serif;
 }
 .signup-container {
     display: flex;
