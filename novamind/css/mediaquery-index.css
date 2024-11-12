@@ -259,6 +259,9 @@
     #social-media, #soporte, #contacto, #mapa, #acercaDe{
         width: 350px;
     }
+    a{
+        transition: none;
+    }
 }
 
 /*Tablets iPad Air y Mini*/
@@ -323,6 +326,9 @@
     }
     footer{
         height: auto;
+    }
+    a{
+        transition: none;
     }
 }
 
@@ -553,7 +559,9 @@
     /*FOOTER*/
     footer {
         font-size: 1rem;
-        
+    }
+    a{
+        transition: none;
     }
    
 }
