@@ -252,8 +252,9 @@
         text-align: center; 
         justify-content: center;
     }
-   
-    
+    #social-media, #soporte, #contacto, #mapa, #acercaDe{
+        width: 350px;
+    }
 }
 
 /*Tablets iPad Air y Mini*/
@@ -542,6 +543,7 @@
     footer {
         margin-top: 50px; /* Ajusta el valor según sea necesario */
     }
+   
 }
 
 
