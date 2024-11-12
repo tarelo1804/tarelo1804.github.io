@@ -247,24 +247,13 @@
         font-size: 2.2rem;
         width: 425px;
     }
-    footer .container {
-        padding: 0 15px; /* Asegura que haya espacio en los bordes */
+    /*FOOTER*/
+    .footer-sections {
+        text-align: center; 
+        justify-content: center;
     }
-
-    footer .footer-sections .col-md-2 {
-        /* Hacemos que las columnas se alineen de manera más compacta */
-        flex: 1 1 100%; /* Las columnas se apilan */
-        margin-bottom: 20px; /* Añadir un pequeño margen entre las columnas */
-    }
-
-    footer .footer-sections h4 {
-        font-size: 1.25rem; /* Ajustamos el tamaño de los encabezados */
-    }
-
-    footer .footer-sections p,
-    footer .footer-sections ul {
-        font-size: 0.9rem; /* Reducir el tamaño de texto para mejor lectura */
-    }
+   
+    
 }
 
 /*Tablets iPad Air y Mini*/
@@ -549,29 +538,10 @@
     .texto > p{
         font-size: 1.2rem;
     }
-    footer .container {
-        padding: 0 10px; /* Reduce el padding en pantallas más pequeñas */
+    /*FOOTER*/
+    footer {
+        margin-top: 50px; /* Ajusta el valor según sea necesario */
     }
-    footer .footer-sections .col-md-2 {
-        flex: 1 1 100%; /* Las columnas se apilan */
-        margin-bottom: 15px;
-    }
-    footer .footer-sections h4 {
-        font-size: 1rem; /* Reducir el tamaño del texto en pantallas muy pequeñas */
-    }
-    footer .footer-sections p,
-    footer .footer-sections ul {
-        font-size: 0.85rem; /* Reducir más el tamaño de los textos */
-    }
-    /* Estilos adicionales para los enlaces */
-    footer a {
-        font-size: 0.9rem; /* Asegura que los enlaces sean legibles */
-    }
-    footer .back-to-top {
-        font-size: 0.8rem; /* Hacer que el texto del botón sea más pequeño */
-        padding: 5px 8px; /* Reducir el padding del botón */
-    }
-
 }
 
 
