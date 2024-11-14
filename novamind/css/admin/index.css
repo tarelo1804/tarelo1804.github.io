@@ -1,3 +1,6 @@
-aside#aside{
-    background-color: rgb(0, 255, 170);
+body{
+    font-family: "League Spartan", sans-serif;
+}
+div#aside{
+    background-color: #1F2833;
 }

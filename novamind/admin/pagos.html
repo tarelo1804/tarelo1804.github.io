@@ -165,13 +165,14 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Ap paterno</th>
-                        <th scope="col">Ap materno</th>
-                        <th scope="col">Correo electronico</th>
-                        <th scope="col">Contraseña</th>
-                        <th scope="col">Fecha de nacimiento</th>
-                        <th scope="col">Recibir oferta</th>
+                        <th scope="col">Id de pago</th>
+                        <th scope="col">Monto</th>
+                        <th scope="col">Método de pago</th>
+                        <th scope="col">Estado de pago</th>
+                        <th scope="col">Fecha de pago</th>
+                        <th scope="col">Id de usuario</th>
+                        <th scope="col">Id de curso</th>
+                        <th scope="col">Nombre del curso</th>
                         <th></th>
                         
                       </tr>
@@ -179,13 +180,13 @@
                     <tbody>
                       <tr>
                         <th scope="row" style="text-align: center;">1</th>
-                        <td>Jose</td>
-                        <td>Gomez</td>
-                        <td>Lozano</td>
-                        <td>josegl@gmail.com</td>
-                        <td>1234</td>
-                        <td>1962/01/14</td>
-                        <td>si</td>
+                        <td>P001</td>
+                        <td>500</td>
+                        <td>Tarjeta de crédito</td>
+                        <td>Completado</td>
+                        <td>2024-01-12</td>
+                        <td>U001</td>
+                        <td>C001</td>
                         <td>
                             <button class="btn btn-outline-danger btn-sm mx-1">
                                 <i class="bi bi-trash3-fill"></i>
@@ -200,13 +201,13 @@
                       </tr>
                       <tr>
                         <th scope="row" style="text-align: center;">2</th>
-                        <td>Diego</td>
-                        <td>Molina</td>
-                        <td>Garcia</td>
-                        <td>diegomg@outlook.com</td>
-                        <td>123</td>
-                        <td>2014/05/03</td>
-                        <td>no</td>
+                        <td>P002</td>
+                        <td>1200</td>
+                        <td>PayPal</td>
+                        <td>Completado</td>
+                        <td>2024-02-22</td>
+                        <td>U002</td>
+                        <td>C002</td>
                         <td>
                             <button class="btn btn-outline-danger btn-sm mx-1">
                                 <i class="bi bi-trash3-fill"></i>
@@ -221,13 +222,13 @@
                       </tr>
                       <tr>
                         <th scope="row" style="text-align: center;">3</th>
-                        <td>Maria</td>
-                        <td>Gonzalez</td>
-                        <td>Lopez</td>
-                        <td>mariagl@outlook.com</td>
-                        <td>456</td>
-                        <td>1979/02/18</td>
-                        <td>no</td>
+                        <td>P003</td>
+                        <td>1150</td>
+                        <td>Tarjeta de débito</td>
+                        <td>En progreso</td>
+                        <td>2024-03-12</td>
+                        <td>U003</td>
+                        <td>C003</td>
                         <td>
                             <button class="btn btn-outline-danger btn-sm mx-1">
                                 <i class="bi bi-trash3-fill"></i>
@@ -309,80 +310,65 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="AgregarPagoLabel">Agregar Usuario</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="AgregarPago" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" class="needs-validation" novalidate id="form">
                 <div class="modal-body">
                     <div class="row mb-2 p-2">
                         <div class="col-6">
-                            <label for="">Nombre</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <label for="">Monto</label>
+                            <input required type="number" class="form-control" placeholder="Inserta el monto a pagar">
                             <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Nombre incorrecto</div>
+                            <div class="invalid-feedback">Monto incorrecto</div>
                         </div>
                         <div class="col-6">
-                            <label for="">Nombre de usuario</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <label for="">Metodo de pago</label>
+                            <select class="form-control">
+                                <option value="1">Transferencia</option>
+                                <option value="2">Tarjeta de crédito</option>
+                                <option value="3">Tarjeta de débito</option>
+                                <option value="3">PayPal</option>
+                            </select>
                             <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Nombre de usuario incorrecto</div>
-                        </div>
-                    </div>
-                    <div class="row mb-2 p-2">
-                        <div class="col-6">
-                            <label for="">Apellido Paterno</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el apellido paterno">
-                            <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Apellido paterno incorrecto</div>
-                        </div>
-                        <div class="col-6">
-                            <label for="">Apellido Materno</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el apellido materno">
-                            <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Apellido materno incorrecto</div>
+                            <div class="invalid-feedback">Por favor selecciona el método de pago</div>
                         </div>
                     </div>
                     <div class="row mb-2 p-2">
                         <div class="col-12">
-                            <label for="">Correo Electrónico</label>
-                            <input required min="18" type="email" class="form-control" placeholder="Inserta el correo electrónico">
+                            <label for="">Estado de pago</label>
+                            <select class="form-control">
+                                <option value="1">Completado</option>
+                                <option value="2">En progreso</option>
+                                <option value="3">Cancelado</option>
+                            </select>
                             <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Correo electrónico incorrecto</div>
-                        </div>
-                    </div>
-                    <div class="row mb-2 p-2">
-                        <div class="col-6">
-                            <label for="">Contraseña</label>
-                            <input required type="password" class="form-control" placeholder="Inserta la contraseña">
-                            <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Contraseña incorrecta</div>
-                        </div>
-                        <div class="col-6">
-                            <label for="">Confirmar contraseña</label>
-                            <input required type="password" class="form-control" placeholder="Confirma la contraseña">
-                            <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Contraseña incorrecta</div>
+                            <div class="invalid-feedback">Por favor selecciona el estado de pago</div>
                         </div>
                     </div>
                     <div class="row mb-2 p-2">
                         <div class="col-12">
-                            <label for="">Fecha de Nacimiento</label>
-                            <input required type="date" class="form-control">
+                            <label for="">Fecha de pago</label>
+                            <input type="date" class="form-control">
                             <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Fecha de nacimiento incorrecta</div>
+                            <div class="invalid-feedback">Por favor selecciona el estado de pago</div>
                         </div>
                     </div>
                     <div class="row mb-2 p-2">
                         <div class="col-12">
-                            <label for="ofertas">
-                                <input type="checkbox" value="sí">
-                                Quiero recibir ofertas especiales y consejos de aprendizaje
-                            </label>
+                            <label for="">Id de usuario</label>
+                            <input required type="text" class="form-control" placeholder="Inserta el id del usuario">
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Id del usuario incorrecto</div>
                         </div>
                     </div>
-                    <div class="alert alert-danger mt-4 d-none" id="divAlerta" role="alert">
-                        Favor de llenar todos los campos
+                    <div class="row mb-2 p-2">
+                        <div class="col-12">
+                            <label for="">Id del curso</label>
+                            <input required type="text" class="form-control" placeholder="Inserta el id del curso">
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Id del curso incorrecto</div>
+                        </div>
                     </div>
-                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
