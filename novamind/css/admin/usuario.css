@@ -1,0 +1,31 @@
+body{
+    font-family: "League Spartan", sans-serif;
+    height: 100%;
+}
+aside{
+    width: 280px;
+}
+div#aside{
+    background-color: #1F2833;
+    height: auto;
+}
+h4{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#eliminar{
+    color: white;
+    background-color: #45A29E;
+}
+#eliminar:hover{
+    background-color: black;
+    color: white;
+}
+#editar{
+    color: white;
+    background-color: black;
+}
+#editar:hover{
+    background-color: #45A29E;
+    color: white;
+}

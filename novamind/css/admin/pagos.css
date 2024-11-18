@@ -1,0 +1,21 @@
+body{
+    font-family: "League Spartan", sans-serif;
+    height: 100%;
+}
+aside{
+    width: 280px;
+}
+div#aside{
+    background-color: #1F2833;
+    height: auto;
+}
+h4{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.card-body{
+    font-size: 1.5rem;
+}
+#card{
+    font-weight: 600;
+}

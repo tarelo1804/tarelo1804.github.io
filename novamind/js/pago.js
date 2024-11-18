@@ -9,3 +9,25 @@ document.getElementById("btnGuardar").onclick=(event)=>{
         //footer: '<a href="#">Por favor llena todos los campos</a>'
       });
 }
+
+const btnBuscarPago = document.getElementById('btnBuscarPago');
+const inputPagoId = document.getElementById('inputPagoId');
+const inputFechaPago = document.getElementById('inputFechaPago');
+const modalBuscarPago = new bootstrap.Modal(document.getElementById('modalBuscarPago'));
+const modalAlerta = new bootstrap.Modal(document.getElementById('modalAlerta'));
+
+// Evento al hacer clic en el botón Buscar
+btnBuscarPago.addEventListener('click', function () {
+    const pagoId = inputPagoId.value.trim(); // Eliminar espacios en blanco
+    const fechaPago = inputFechaPago.value.trim(); // Obtener valor del campo de fecha
+
+    if (pagoId === "" || fechaPago === "") {
+        // Mostrar el modal de alerta si faltan datos
+        modalAlerta.show();
+    } else {
+        // Mostrar el modal de datos si todos los campos están completos
+        modalBuscarPago.show();
+    }
+});
+
+

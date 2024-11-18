@@ -1,6 +1,36 @@
 body{
     font-family: "League Spartan", sans-serif;
+    height: 100%;
+}
+aside{
+    width: 280px;
 }
 div#aside{
     background-color: #1F2833;
+    height: auto;
+}
+#bienvenida{
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+}
+#bienvenida > span{
+    color: #45A29E;
+}
+#carta{
+    background-color: #1F2833;
+    text-align: center;
+}
+#colorCarta{
+    color: white;
+}
+#colorCarta1{
+    color: white;
+    font-weight: 600;
+}
+.card-header{
+    background-color: #1F2833;
+    color: white;
+
 }

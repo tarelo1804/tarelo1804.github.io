@@ -1,21 +1,34 @@
-document.getElementById("btnSave").onclick = (event) => {
-  event.preventDefault(); // Evita recargar la página
-  
-  const form = document.getElementById("form");
-  form.classList.add('was-validated'); // Marca el formulario como validado
-  
-  // Comprobar si el formulario es válido
-  if (!form.checkValidity()) {
-      // Si el formulario no es válido, muestra la alerta
-      document.querySelector("#divAlerta").classList.remove("d-none");
-      Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Algo salió mal, favor de llenar todos los campos",
-      });
-  } else {
-      // Si el formulario es válido, puedes proceder con la acción (ocultar alerta si es necesario)
-      document.querySelector("#divAlerta").classList.add("d-none");
-      // Aquí puedes agregar la lógica para guardar o procesar los datos
-  }
-};
+/*ELIMINAR*/
+document.querySelectorAll('.btnEliminar').forEach(button => {
+    button.addEventListener('click', function () {
+        Swal.fire({
+            title: '¿Deseas eliminar este curso?',
+            text: "¡No podrás revertir esta acción!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('¡Eliminado!', 'El curso ha sido eliminado.', 'success');
+                // Aquí puedes agregar la lógica para eliminar el elemento
+            }
+        });
+    });
+  });
+
+
+    /*EDITAR*/
+    document.getElementById("btnGuardar").onclick=(event)=>{
+        event.preventDefault()//evita recargar la pagina
+        document.getElementById("form").classList.add('was-validated')
+        document.querySelector("#divAlerta").classList.remove("d-none")
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: " Algo salió mal, Favor de llenar todos los campos",
+            //footer: '<a href="#">Por favor llena todos los campos</a>'
+          });
+    }

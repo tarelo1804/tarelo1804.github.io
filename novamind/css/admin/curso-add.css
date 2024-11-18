@@ -1,0 +1,32 @@
+body{
+    font-family: "League Spartan", sans-serif;
+    height: 100%;
+}
+aside{
+    width: 280px;
+}
+div#aside{
+    background-color: #1F2833;
+    height: auto;
+}
+h4{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#btnGuardar{
+    color: white;
+    background-color: black;
+}
+
+#btnGuardar:hover{
+    background-color: rgb(75, 75, 75);
+    color: white;
+}
+#volver{
+    background-color: #45A29E;
+    color: white;
+}
+#volver:hover{
+    background-color: #378985;
+    color: white;
+}
