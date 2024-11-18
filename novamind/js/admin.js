@@ -31,10 +31,11 @@ const ctx = document.getElementById('chartIngresos');
   new Chart(ctxCategorias, {
       type: 'pie',
       data: {
-          labels: ['Fundamentos de Tecnología', 'Seguridad en Línea', 'Redes de Computadoras', 'Inteligencia Artificial'],
+          labels: ['Fundamentos de la tecnología', 'Productividad digital', 'Ciberseguridad', 
+            'Redes', 'Programación', 'Inteligencia artificial'],
           datasets: [{
-              data: [40, 25, 20, 15], // Porcentajes
-              backgroundColor: ['#1F2833', '#45A29E', 'lightgrey', '#66FCF1']
+              data: [40, 25, 20, 15, 12, 7], // Porcentajes
+              backgroundColor: ['#1F2833', '#45A29E', 'lightgrey', '#66FCF1' , 'grey', '#b9fafa', '#7d7b77']
           }]
       },
       options: {

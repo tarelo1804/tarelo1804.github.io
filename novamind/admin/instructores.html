@@ -132,7 +132,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Ap Paterno</th>
                         <th scope="col">Ap Materno</th>
-                        <th scope="col">Correo electronico</th>
+                        <th scope="col">Correo electrónico</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Especialidad</th>
                         <th scope="col">Estatus</th>
@@ -152,14 +152,11 @@
                         <td>Activo</td>
                         <td>Redes,Programación</td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger btn-sm mx-1 btnEliminarInstructor">
+                            <button id="eliminar" type="button" class="btn btn-sm mx-1 btnEliminarInstructor">
                                 <i class="bi bi-trash3-fill"></i>
                             </button>   
-                            <button class="btn btn-outline-warning btn-sm mx-1">
+                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarInstructor">
                                 <i class="bi bi-pencil-fill"></i>
-                            </button>
-                            <button class="btn btn-outline-dark btn-sm mx-1">
-                                <i class="bi bi-arrow-right"></i>
                             </button>
                         </td>
                       </tr>
@@ -174,14 +171,11 @@
                         <td>Activo</td>
                         <td>Diseño</td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger btn-sm mx-1 btnEliminarInstructor">
+                            <button id="eliminar" type="button" class="btn btn-sm mx-1 btnEliminarInstructor">
                                 <i class="bi bi-trash3-fill"></i>
                             </button>   
-                            <button class="btn btn-outline-warning btn-sm mx-1">
+                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarInstructor">
                                 <i class="bi bi-pencil-fill"></i>
-                            </button>
-                            <button class="btn btn-outline-dark btn-sm mx-1">
-                                <i class="bi bi-arrow-right"></i>
                             </button>
                         </td>
                       </tr>
@@ -196,14 +190,11 @@
                         <td>Activo</td>
                         <td>Redes,Programación</td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger btn-sm mx-1 btnEliminarInstructor">
+                            <button id="eliminar" type="button" class="btn btn-sm mx-1 btnEliminarInstructor">
                                 <i class="bi bi-trash3-fill"></i>
                             </button>   
-                            <button class="btn btn-outline-warning btn-sm mx-1">
+                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarInstructor">
                                 <i class="bi bi-pencil-fill"></i>
-                            </button>
-                            <button class="btn btn-outline-dark btn-sm mx-1">
-                                <i class="bi bi-arrow-right"></i>
                             </button>
                         </td>
                       </tr>
@@ -215,6 +206,104 @@
         </section>
     </main>
     <!--END MAIN CONTENT-->
+
+     <!-- Modal Editar -->
+     <div class="modal fade modal-xl" id="editarInstructor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Instructor</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" class="needs-validation" novalidate id="form">
+                <div class="modal-body">
+                    <div class="row mb-2 p-2">
+                        <div class="col-4">
+                            <label for="">Nombre</label>
+                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Nombre incorrecto</div>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Apellido Paterno</label>
+                            <input  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Apellido paterno incorrecto</div>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Apellido Materno</label>
+                            <input  required type="text" class="form-control" placeholder="Inserta el apellido materno">
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Apellido materno incorrecto</div>
+                        </div>
+                        
+                    </div>
+                    <div class="row mb-2 p-2">
+                        <div class="col-6">
+                            <label for="">Correo Electrónico</label>
+                            <input required type="email" class="form-control" placeholder="Inserta el correo electrónico">
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Correo electrónico incorrecto</div>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Teléfono</label>
+                            <input required min="18" type="email" class="form-control" placeholder="Inserta el teléfono">
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Teléfono incorrecto</div>
+                        </div>
+                    </div>
+                    <div class="row mb-2 p-2">
+                        <div class="col-12">
+                            <label for="">Especialidad</label>
+                            <br>
+                            <input type="checkbox" name="especialidades[]" value="1" > Tecnología &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="2" > Productividad digital &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="3" > Ciberseguridad &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="4" > Redes &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="5" > Programación &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="6" > Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Por fvaor seleccione una o más especialidades</div>
+                        </div>
+                    </div>
+                    <div class="row mb-2 p-2">
+                        <div class="col-12">
+                            <label for="">Estatus</label>
+                            <select required class="form-control">
+                                <option value="" disabled selected>Selecciona el estatus</option>
+                                <option value="1">Activo</option>
+                                <option value="2">Inactivo</option>
+                            </select>
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Por favor selecciona el estatus</div>
+                        </div>
+                    </div>
+                    <div class="row mb-2 p-2">
+                        <div class="col-12">
+                            <label for="">Categoría del curso</label>
+                            <br>
+                            <input type="checkbox" name="especialidades[]" value="1" > Tecnología &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="2" > Productividad digital &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="3" > Ciberseguridad &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="4" > Redes &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="5" > Programación &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="especialidades[]" value="6" > Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                            <div class="valid-feedback">Correcto</div>
+                            <div class="invalid-feedback">Por fvaor seleccione una o más especialidades</div>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger mt-4 d-none" id="divAlerta" role="alert">
+                        Favor de llenar todos los campos
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 
     <!-- Modal -->
     <div class="modal fade modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -271,7 +360,6 @@
                             <input type="checkbox" name="especialidades[]" value="4" > Redes &nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="especialidades[]" value="5" > Programación &nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="especialidades[]" value="6" > Inteligencia artificial &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="7" > Redes &nbsp;&nbsp;&nbsp;
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Por fvaor seleccione una o más especialidades</div>
                         </div>
@@ -298,7 +386,6 @@
                             <input type="checkbox" name="especialidades[]" value="4" > Redes &nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="especialidades[]" value="5" > Programación &nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="especialidades[]" value="6" > Inteligencia artificial &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="7" > Redes &nbsp;&nbsp;&nbsp;
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Por fvaor seleccione una o más especialidades</div>
                         </div>

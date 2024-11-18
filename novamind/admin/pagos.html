@@ -139,7 +139,7 @@
                     <input id="inputFechaPago" type="date" class="form-control">
                 </div>
                 <div class="col-2">
-                    <button id="btnBuscarPago" style="margin-left: 60px;" class="btn btn-dark mt-4" data-bs-toggle="modal" data-bs-target="#modalBuscarPago">
+                    <button id="btnBuscarPago" style="margin-left: 60px;" class="btn btn-dark mt-4">
                         <i class="bi bi-search"></i>
                         Buscar
                     </button>
@@ -178,7 +178,7 @@
         <!-- Tabla de Pagos -->
         <div class="d-flex justify-content-end m-4" >
             <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#AgregarPago">
-                <i class="bi bi-currency-dollar"></i>
+                <i class="bi bi-plus"></i>
                 Agregar
             </button>
         </div>
@@ -210,10 +210,10 @@
                         <td>U001</td>
                         <td>C001</td>
                         <td>
-                            <button class="btn btn-outline-danger btn-sm mx-1 btnEliminarPago" data-bs-toggle="modal" data-bs-target="#editarPago" >
+                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarPago" >
                                 <i class="bi bi-trash3-fill"></i>
                             </button>   
-                            <button class="btn btn-outline-warning btn-sm mx-1">
+                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarPago">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                         </td>
@@ -228,10 +228,10 @@
                         <td>U002</td>
                         <td>C002</td>
                         <td>
-                            <button class="btn btn-outline-danger btn-sm mx-1 btnEliminarPago" >
+                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarPago" >
                                 <i class="bi bi-trash3-fill"></i>
                             </button>  
-                            <button class="btn btn-outline-warning btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarPago">
+                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarPago">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                         </td>
@@ -246,10 +246,10 @@
                         <td>U003</td>
                         <td>C003</td>
                         <td>
-                            <button class="btn btn-outline-danger btn-sm mx-1 btnEliminarPago" >
+                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarPago" >
                                 <i class="bi bi-trash3-fill"></i>
                             </button>   
-                            <button class="btn btn-outline-warning btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarPago">
+                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarPago">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                         </td>
@@ -263,6 +263,24 @@
         </section>
     </main>
     <!--END MAIN CONTENT-->
+
+    <!-- Modal de Alerta -->
+    <div class="modal fade" id="modalAlerta" tabindex="-1" aria-labelledby="modalAlertaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAlertaLabel">Error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    Por favor, completa todos los campos para buscar el pago.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal Buscar Pago -->
     <div class="modal fade modal-lg" id="modalBuscarPago" tabindex="-1" aria-labelledby="modalBuscarPagoLabel" aria-hidden="true">
@@ -316,8 +334,7 @@
                 </div>
             </div>
         </div>
-        </div>
-
+    </div>
         <!-- Modal Agregar Pago -->
     <div class="modal fade modal-lg" id="AgregarPago" tabindex="-1" aria-labelledby="AgregarPagoLabel" aria-hidden="true">
         <div class="modal-dialog">

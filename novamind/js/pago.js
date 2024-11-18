@@ -10,6 +10,7 @@ document.getElementById("btnGuardar").onclick=(event)=>{
       });
 }
 
+
 const btnBuscarPago = document.getElementById('btnBuscarPago');
 const inputPagoId = document.getElementById('inputPagoId');
 const inputFechaPago = document.getElementById('inputFechaPago');
@@ -29,5 +30,4 @@ btnBuscarPago.addEventListener('click', function () {
         modalBuscarPago.show();
     }
 });
-
 

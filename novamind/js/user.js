@@ -1,4 +1,4 @@
-document.querySelectorAll('.btnGuardar').onclick=(event)=>{
+document.querySelectorAll(".btnGuardar").onclick=(event)=>{
     event.preventDefault()//evita recargar la pagina
     document.getElementById("form").classList.add('was-validated')
     document.querySelector("#divAlerta").classList.remove("d-none")

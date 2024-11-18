@@ -3,7 +3,8 @@ body{
     height: 100%;
 }
 aside{
-    width: 280px;
+    width: 18%;
+ 
 }
 div#aside{
     background-color: #1F2833;
