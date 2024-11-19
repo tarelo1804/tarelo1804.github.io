@@ -256,14 +256,16 @@
                         <div class="col-12">
                             <label for="">Especialidad</label>
                             <br>
-                            <input type="checkbox" name="especialidades[]" value="1" > Tecnología &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="2" > Productividad digital &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="3" > Ciberseguridad &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="4" > Redes &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="5" > Programación &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="6" > Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                            <fieldset id="especialidad1">
+                                <input type="checkbox" name="especialidades[]" value="1"> Tecnología &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="2"> Productividad digital &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="3"> Ciberseguridad &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="4"> Redes &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="5"> Programación &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="6"> Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                            </fieldset>
+                            <div class="invalid-feedback">Por favor seleccione una o más especialidades</div>
                             <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Por fvaor seleccione una o más especialidades</div>
                         </div>
                     </div>
                     <div class="row mb-2 p-2">
@@ -282,14 +284,16 @@
                         <div class="col-12">
                             <label for="">Categoría del curso</label>
                             <br>
-                            <input type="checkbox" name="especialidades[]" value="1" > Tecnología &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="2" > Productividad digital &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="3" > Ciberseguridad &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="4" > Redes &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="5" > Programación &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="6" > Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                            <fieldset id="categoria1">
+                                <input type="checkbox" name="categorias[]" value="1"> Tecnología &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="categorias[]" value="2"> Productividad digital &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="categorias[]" value="3"> Ciberseguridad &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="categorias[]" value="4"> Redes &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="categorias[]" value="5"> Programación &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="categorias[]" value="6"> Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                            </fieldset>
+                            <div class="invalid-feedback">Por favor seleccione una o más categorías</div>
                             <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Por fvaor seleccione una o más especialidades</div>
                         </div>
                     </div>
                     <div class="alert alert-danger mt-4 d-none" id="divAlerta" role="alert">
@@ -302,6 +306,7 @@
                 </div>
             </form>
         </div>
+        </div>
     </div>
 
 
@@ -313,7 +318,7 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Instructor</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" class="needs-validation" novalidate id="form">
+            <form action="" class="needs-validation" novalidate id="formInstructor">
                 <div class="modal-body">
                     <div class="row mb-2 p-2">
                         <div class="col-4">
@@ -354,14 +359,16 @@
                         <div class="col-12">
                             <label for="">Especialidad</label>
                             <br>
-                            <input type="checkbox" name="especialidades[]" value="1" > Tecnología &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="2" > Productividad digital &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="3" > Ciberseguridad &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="4" > Redes &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="5" > Programación &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="6" > Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                            <fieldset id="especialidad2">
+                                <input type="checkbox" name="especialidades[]" value="1"> Tecnología &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="2"> Productividad digital &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="3"> Ciberseguridad &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="4"> Redes &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="5"> Programación &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="especialidades[]" value="6"> Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                            </fieldset>
+                            <div class="invalid-feedback">Por favor seleccione una o más especialidades</div>
                             <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Por fvaor seleccione una o más especialidades</div>
                         </div>
                     </div>
                     <div class="row mb-2 p-2">
@@ -376,29 +383,30 @@
                             <div class="invalid-feedback">Por favor selecciona el estatus</div>
                         </div>
                     </div>
-                    <div class="row mb-2 p-2">
-                        <div class="col-12">
-                            <label for="">Categoría del curso</label>
-                            <br>
-                            <input type="checkbox" name="especialidades[]" value="1" > Tecnología &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="2" > Productividad digital &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="3" > Ciberseguridad &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="4" > Redes &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="5" > Programación &nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="especialidades[]" value="6" > Inteligencia artificial &nbsp;&nbsp;&nbsp;
-                            <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Por fvaor seleccione una o más especialidades</div>
-                        </div>
+                    <div class="col-12">
+                        <label for="">Categoría del curso</label>
+                        <br>
+                        <fieldset id="categoria2">
+                            <input type="checkbox" name="categorias[]" value="1"> Tecnología &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="categorias[]" value="2"> Productividad digital &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="categorias[]" value="3"> Ciberseguridad &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="categorias[]" value="4"> Redes &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="categorias[]" value="5"> Programación &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="categorias[]" value="6"> Inteligencia artificial &nbsp;&nbsp;&nbsp;
+                        </fieldset>
+                        <div class="invalid-feedback d-none">Por favor seleccione una o más categorías</div>
+                        <div class="valid-feedback d-none">Correcto</div>
                     </div>
-                    <div class="alert alert-danger mt-4 d-none" id="divAlerta" role="alert">
+                    <div class="alert alert-danger mt-4 d-none" id="alertaInstructor" role="alert">
                         Favor de llenar todos los campos
                     </div>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                <button type="submit" class="btn btn-primary" id="btnGuardarInstructor">Guardar</button>
                 </div>
             </form>
+        </div>
         </div>
     </div>
 

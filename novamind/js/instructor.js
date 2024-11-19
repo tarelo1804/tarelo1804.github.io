@@ -31,3 +31,18 @@ document.querySelectorAll('.btnEliminarInstructor').forEach(button => {
             //footer: '<a href="#">Por favor llena todos los campos</a>'
           });
     }
+
+    document.getElementById("btnGuardarInstructor").onclick=(event)=>{
+        event.preventDefault()//evita recargar la pagina
+        document.getElementById("formInstructor").classList.add('was-validated')
+        document.querySelector("#alertaInstructor").classList.remove("d-none")
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: " Algo salió mal, Favor de llenar todos los campos",
+            //footer: '<a href="#">Por favor llena todos los campos</a>'
+          });
+    }
+
+
+ 
