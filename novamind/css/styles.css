@@ -90,7 +90,7 @@ p#text{
     margin-right: auto; 
 
 }
-main{
+section#memorama{
     display: flex; 
     text-align: center;
     align-items: center;
@@ -110,7 +110,7 @@ main{
     margin: 7px;
 }
 .buttonMemo:hover{
-    background-color:#e1e2e3;
+    background-color:#d7dbd8;
 }
 .sectionTwo{
     width: 350px;
