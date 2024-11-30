@@ -1,3 +1,16 @@
+<?php session_start();
+    if(!isset($_SESSION['user_data'])){
+        header("Location: ../login.php");
+    }
+    $user_data = $_SESSION['user_data'];
+?>
+
+<?php
+    include "../php/conexion.php";
+    $sql = "select * from users order by idUser desc";
+    $res= $conexion->query("$sql") or die ($conexion->error);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,99 +33,11 @@
 </head>
 <body class="d-flex">
     <!--SIDEBAR-->
-    <aside class="d-flex">
-        <div class="text-white p-3 vh-100 w-100" id="aside" >
-            <h2 class="h3 text-center" style="font-weight:bold;">NOVAMIND</h2>
-            <nav>   
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a href="../admin/admin.php" class="nav-link text-white">
-                        <i class="bi bi-house-fill"></i>&nbsp;&nbsp;&nbsp;Inicio
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/users.php" class="nav-link text-white">
-                          <i class="bi bi-person-fill"></i>&nbsp;&nbsp;&nbsp;Usuarios
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/cursos.php" class="nav-link text-white">
-                            <i class="bi bi-laptop"></i>&nbsp;&nbsp;&nbsp;Cursos
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/lecciones.php" class="nav-link text-white">
-                            <i class="bi bi-list-task"></i>&nbsp;&nbsp;&nbsp;Lecciones
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/categorias.php" class="nav-link text-white">
-                            <i class="bi bi-bookmark-fill"></i>&nbsp;&nbsp;&nbsp;Categorías
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/instructores.php" class="nav-link text-white">
-                            <i class="bi bi-person-vcard-fill"></i>&nbsp;&nbsp;&nbsp;Instructores
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/pagos.php" class="nav-link text-white">
-                            <i class="bi bi-currency-dollar"></i>&nbsp;&nbsp;&nbsp;Pagos
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
+    <?php include "../layouts/aside.php"; ?>
     <!--END SIDEBAR-->
     <!--MAIN CONTENT-->
     <main class="flex-grow-1 " >
-        <header class="pt-3">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <a href="" class="navbar-brand">Mi Dashboard</a>
-                    
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
-                            <li class="navbar-item mx-4">
-                                <button type="button" class="btn btn-ligth position-relative">
-                                    <i class="bi bi-bell-fill"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                      99+
-                                      <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                  </button>
-                                
-                            </li>
-                            <li class="navbar-item mx-1">
-                                <img style="border-radius: 50%; border: 3px solid rgb(0, 90, 0); width:50px; 
-                                height: 50px;" src="../img/admin.jpg" alt="">
-                            </li>
-                            <li class="navbar-item droptown">
-                                <a href="" class="nav-link dropdown-toggle" id="userDropdown" role="button" 
-                                data-bs-toggle="dropdown" aria-expanded="false">Administrador</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-person-fill"></i> 
-                                            Perfil</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-
-                                    </li>
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-box-arrow-left"></i>
-                                            Cerrar Sesión</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+    <?php include "../layouts/header.php"; ?>
         <section class="container mt-4 p-4">
             
             <!--TITLE SECTION-->
@@ -140,20 +65,40 @@
                         <th scope="col">Fecha de nacimiento</th>
                         <th scope="col">Recibir oferta</th>
                         <th></th>
-                        
                       </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            while($fila = mysqli_fetch_array($res)){
+
+                           
+                        ?>
                       <tr>
-                        <th scope="row" style="text-align: center;">1</th>
-                        <td>José</td>
-                        <td>Gómez</td>
-                        <td>Lozano</td>
-                        <td>auroplais69</td>
-                        <td>josegl@gmail.com</td>
+                        <td scope="row" style="text-align: center;">
+                            <?php echo $fila['idUser'] ?> 
+                        </td>
+                        <td> 
+                            <?php echo $fila['name'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['ap'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['am'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['username'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['email'] ?>
+                        </td>
                         <td>1234</td>
-                        <td>1962/01/14</td>
-                        <td>1</td>
+                        <td>
+                        <?php echo $fila['birthDate'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['recieveOffers'] ?>
+                        </td>
                         <td>
                             <button id="eliminar" class="btn btn-sm mx-1 btnEliminar">
                                 <i class="bi bi-trash3-fill"></i>
@@ -163,44 +108,7 @@
                             </button>
                         </td>
                       </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">2</th>
-                        <td>Diego</td>
-                        <td>Molina</td>
-                        <td>Garcia</td>
-                        <td>masterpro100</td>
-                        <td>diegomg@outlook.com</td>
-                        <td>123</td>
-                        <td>2014/05/03</td>
-                        <td>0</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminar">
-                                <i class="bi bi-trash3-fill"></i>
-                              </button>
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarUsuario">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">3</th>
-                        <td>María</td>
-                        <td>González</td>
-                        <td>López</td>
-                        <td>sugarmami45</td>
-                        <td>mariagl@outlook.com</td>
-                        <td>456</td>
-                        <td>1979/02/18</td>
-                        <td>0</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminar">
-                                <i class="bi bi-trash3-fill"></i>
-                              </button>
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarUsuario">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
+                      <?php  } ?>
                     </tbody>
                   </table> 
             </div>
@@ -218,24 +126,24 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Usuario</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" class="needs-validation" novalidate id="form">
+            <form method="post" action="../php/addUser.php" class="needs-validation" novalidate id="form">
                 <div class="modal-body">
                     <div class="row mb-2 p-2">
                         <div class="col-4">
                             <label for="">Nombre</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <input name="txtName" required type="text" class="form-control" placeholder="Inserta el nombre">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Nombre incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Apellido Paterno</label>
-                            <input  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
+                            <input name="txtAp"  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Apellido paterno incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Apellido Materno</label>
-                            <input  required type="text" class="form-control" placeholder="Inserta el apellido materno">
+                            <input name="txtAm"  required type="text" class="form-control" placeholder="Inserta el apellido materno">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Apellido materno incorrecto</div>
                         </div>
@@ -244,7 +152,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Nombre de usuario</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <input name="txtUsername" required type="text" class="form-control" placeholder="Inserta el nombre">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Nombre de usuario incorrecto</div>
                         </div>
@@ -252,19 +160,19 @@
                     <div class="row mb-2 p-2">
                         <div class="col-4">
                             <label for="">Correo Electrónico</label>
-                            <input required min="18" type="email" class="form-control" placeholder="Inserta el correo electrónico">
+                            <input name="txtEmail" required min="18" type="email" class="form-control" placeholder="Inserta el correo electrónico">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Correo electrónico incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Contraseña</label>
-                            <input required type="password" class="form-control" placeholder="Inserta la contraseña">
+                            <input name="txtPassoword" required type="password" class="form-control" placeholder="Inserta la contraseña">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Contraseña incorrecta</div>
                         </div>
                         <div class="col-4">
                             <label for="">Confirmar contraseña</label>
-                            <input required type="password" class="form-control" placeholder="Confirma la contraseña">
+                            <input name="txtConfirmPass" required type="password" class="form-control" placeholder="Confirma la contraseña">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Contraseña incorrecta</div>
                         </div>
@@ -272,7 +180,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Fecha de nacimiento</label>
-                            <input required type="date" class="form-control">
+                            <input name="txtBirthdate" required type="date" class="form-control">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Fecha de nacimiento incorrecta</div>
                         </div>
@@ -280,7 +188,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">
-                                <input type="checkbox" value="sí">
+                                <input name="txtOffer" type="checkbox" value="sí">
                                 Recibir ofertas especiales y consejos de aprendizaje
                             </label>
                         </div>
@@ -312,19 +220,19 @@
                     <div class="row mb-2 p-2">
                         <div class="col-4">
                             <label for="">Nombre</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <input name="txtName"  required type="text" class="form-control" placeholder="Inserta el nombre">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Nombre incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Apellido Paterno</label>
-                            <input  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
+                            <input name="txtAp"  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Apellido paterno incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Apellido Materno</label>
-                            <input  required type="text" class="form-control" placeholder="Inserta el apellido materno">
+                            <input name="txtAm"  required type="text" class="form-control" placeholder="Inserta el apellido materno">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Apellido materno incorrecto</div>
                         </div>
@@ -333,7 +241,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Nombre de usuario</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <input name="txtUsername" required type="text" class="form-control" placeholder="Inserta el nombre">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Nombre de usuario incorrecto</div>
                         </div>
@@ -341,19 +249,19 @@
                     <div class="row mb-2 p-2">
                         <div class="col-4">
                             <label for="">Correo Electrónico</label>
-                            <input required min="18" type="email" class="form-control" placeholder="Inserta el correo electrónico">
+                            <input name="txtEmail" required min="18" type="email" class="form-control" placeholder="Inserta el correo electrónico">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Correo electrónico incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Contraseña</label>
-                            <input required type="password" class="form-control" placeholder="Inserta la contraseña">
+                            <input name="txtPassword" required type="password" class="form-control" placeholder="Inserta la contraseña">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Contraseña incorrecta</div>
                         </div>
                         <div class="col-4">
                             <label for="">Confirmar contraseña</label>
-                            <input required type="password" class="form-control" placeholder="Confirma la contraseña">
+                            <input name="txtConfirmPass" required type="password" class="form-control" placeholder="Confirma la contraseña">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Contraseña incorrecta</div>
                         </div>
@@ -361,7 +269,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Fecha de Nacimiento</label>
-                            <input required type="date" class="form-control">
+                            <input name="txtBirthdate" required type="date" class="form-control">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Fecha de nacimiento incorrecta</div>
                         </div>
@@ -369,7 +277,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">
-                                <input type="checkbox" value="sí">
+                                <input name="txtOffer" type="checkbox" value="sí">
                                 Recibir ofertas especiales y consejos de aprendizaje
                             </label>
                         </div>

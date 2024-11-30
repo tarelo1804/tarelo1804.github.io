@@ -1,3 +1,19 @@
+<?php session_start();
+    if(!isset($_SESSION['user_data'])){
+        header("Location: ../login.php");
+    }
+    $user_data = $_SESSION['user_data'];
+?>
+
+<?php
+    include "../php/conexion.php";
+    $sql = "select payments.*, users.name as user_name, users.ap, users.am, courses.name from payments 
+        inner join users on payments.idUser = users.idUser 
+        inner join courses on courses.idCourse = payments.idCourse";
+    $res= $conexion->query("$sql") or die ($conexion->error);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,99 +36,11 @@
 </head>
 <body class="d-flex">
     <!--SIDEBAR-->
-    <aside class="d-flex">
-        <div class="text-white p-3 w-100" id="aside" >
-            <h2 class="h3 text-center" style="font-weight: bold;">NOVAMIND</h2>
-            <nav>   
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a href="../admin/admin.php" class="nav-link text-white">
-                        <i class="bi bi-house-fill"></i>&nbsp;&nbsp;&nbsp;Inicio
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/users.php" class="nav-link text-white">
-                          <i class="bi bi-person-fill"></i>&nbsp;&nbsp;&nbsp;Usuarios
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/cursos.php" class="nav-link text-white">
-                            <i class="bi bi-laptop"></i>&nbsp;&nbsp;&nbsp;Cursos
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/lecciones.php" class="nav-link text-white">
-                            <i class="bi bi-list-task"></i>&nbsp;&nbsp;&nbsp;Lecciones
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/categorias.php" class="nav-link text-white">
-                            <i class="bi bi-bookmark-fill"></i>&nbsp;&nbsp;&nbsp;Categorías
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/instructores.php" class="nav-link text-white">
-                            <i class="bi bi-person-vcard-fill"></i>&nbsp;&nbsp;&nbsp;Instructores
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/pagos.php" class="nav-link text-white">
-                            <i class="bi bi-currency-dollar"></i>&nbsp;&nbsp;&nbsp;Pagos
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
+    <?php include "../layouts/aside.php"; ?>
     <!--END SIDEBAR-->
     <!--MAIN CONTENT-->
     <main class="flex-grow-1 " >
-        <header class="pt-3">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <a href="" class="navbar-brand">Mi Dashboard</a>
-                    
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
-                            <li class="navbar-item mx-4">
-                                <button type="button" class="btn btn-ligth position-relative">
-                                    <i class="bi bi-bell-fill"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                      99+
-                                      <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                  </button>
-                                
-                            </li>
-                            <li class="navbar-item mx-1">
-                                <img style="border-radius: 50%; border: 3px solid rgb(0, 90, 0); width:50px; 
-                                height: 50px;" src="../img/admin.jpg" alt="">
-                            </li>
-                            <li class="navbar-item droptown">
-                                <a href="" class="nav-link dropdown-toggle" id="userDropdown" role="button" 
-                                data-bs-toggle="dropdown" aria-expanded="false">Administrador</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-person-fill"></i> 
-                                            Perfil</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-
-                                    </li>
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-box-arrow-left"></i>
-                                            Cerrar Sesión</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+    <?php include "../layouts/header.php"; ?>
         <section class="container mt-4 p-4">
             
             <!--TITLE SECTION-->
@@ -188,27 +116,44 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Id de pago</th>
                         <th scope="col">Monto</th>
                         <th scope="col">Método de pago</th>
                         <th scope="col">Estado de pago</th>
                         <th scope="col">Fecha de pago</th>
-                        <th scope="col">Id de usuario</th>
+                        <th scope="col">Nombre del usuario</th>
                         <th scope="col">Nombre del curso</th>
                         <th></th>
                         
                       </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            while($fila = mysqli_fetch_array($res)){
+
+                           
+                        ?>
                       <tr>
-                        <th scope="row" style="text-align: center;">1</th>
-                        <td>P001</td>
-                        <td>500</td>
-                        <td>Tarjeta de crédito</td>
-                        <td>Completado</td>
-                        <td>2024-01-12</td>
-                        <td>U001</td>
-                        <td>C001</td>
+                        <td scope="row" style="text-align: center;">
+                            <?php echo $fila['idPayment'] ?> 
+                        </td>
+                        <td>
+                        <?php echo $fila['amount'] ?> 
+                        </td>
+                        <td>
+                        <?php echo $fila['paymentMethod'] ?> 
+                        </td>
+                        <td>
+                        <?php echo $fila['status'] ?> 
+                        </td>
+                        <td>
+                        <?php echo $fila['paymentDate'] ?> 
+                        </td>
+                        <td>
+                        <?php echo $fila['user_name'] . ' ' . $fila['ap']. ' ' . $fila['am']; ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['name'] ?> 
+                        </td>
                         <td>
                             <button id="eliminar" class="btn btn-sm mx-1 btnEliminarPago" >
                                 <i class="bi bi-trash3-fill"></i>
@@ -218,42 +163,7 @@
                             </button>
                         </td>
                       </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">2</th>
-                        <td>P002</td>
-                        <td>1200</td>
-                        <td>PayPal</td>
-                        <td>Completado</td>
-                        <td>2024-02-22</td>
-                        <td>U002</td>
-                        <td>C002</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarPago" >
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>  
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarPago">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">3</th>
-                        <td>P003</td>
-                        <td>1150</td>
-                        <td>Tarjeta de débito</td>
-                        <td>En progreso</td>
-                        <td>2024-03-12</td>
-                        <td>U003</td>
-                        <td>C003</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarPago" >
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>   
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarPago">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
+                      <?php  } ?>
                     </tbody>
                   </table> 
             </div>
@@ -348,13 +258,13 @@
                     <div class="row mb-2 p-2">
                         <div class="col-6">
                             <label for="">Monto</label>
-                            <input required type="number" class="form-control" placeholder="Inserta el monto a pagar">
+                            <input name="txtAmount" required type="number" class="form-control" placeholder="Inserta el monto a pagar">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Monto incorrecto</div>
                         </div>
                         <div class="col-6">
                             <label for="">Metodo de pago</label>
-                            <select required class="form-control">
+                            <select name="txtPaymentMethod" required class="form-control">
                                 <option value="" disabled selected>Selecciona el método de pago</option>
                                 <option value="1">Transferencia</option>
                                 <option value="2">Tarjeta de crédito</option>
@@ -368,7 +278,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Estado de pago</label>
-                            <select  required class="form-control">
+                            <select name="txtStatus" required class="form-control">
                                 <option value="" disabled selected>Selecciona el estado</option>
                                 <option value="1">Completado</option>
                                 <option value="2">En progreso</option>
@@ -381,25 +291,17 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Fecha de pago</label>
-                            <input required type="date" class="form-control">
+                            <input name="txtPaymentDate" required type="date" class="form-control">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Por favor seleccione la fecha de pago</div>
                         </div>
                     </div>
                     <div class="row mb-2 p-2">
                         <div class="col-12">
-                            <label for="">Id de usuario</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el id del usuario">
+                            <label for="">Nombre del curso</label>
+                            <input name="txtCourse" required type="text" class="form-control" placeholder="Inserta el id del curso">
                             <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Id de usuario incorrecto</div>
-                        </div>
-                    </div>
-                    <div class="row mb-2 p-2">
-                        <div class="col-12">
-                            <label for="">Id del curso</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el id del curso">
-                            <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Id del curso incorrecto</div>
+                            <div class="invalid-feedback">Nombre del curso incorrecto</div>
                         </div>
                     </div>
                 <div class="modal-footer">
@@ -424,13 +326,13 @@
                     <div class="row mb-2 p-2">
                         <div class="col-6">
                             <label for="">Monto</label>
-                            <input required type="number" class="form-control" placeholder="Inserta el monto a pagar">
+                            <input name="txtAmount" required type="number" class="form-control" placeholder="Inserta el monto a pagar">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Monto incorrecto</div>
                         </div>
                         <div class="col-6">
                             <label for="">Metodo de pago</label>
-                            <select required class="form-control">
+                            <select name="txtPaymentMethod" required class="form-control">
                                 <option value="" disabled selected>Selecciona el método de pago</option>
                                 <option value="1">Transferencia</option>
                                 <option value="2">Tarjeta de crédito</option>
@@ -444,7 +346,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Estado de pago</label>
-                            <select  required class="form-control">
+                            <select name="txtStatus"  required class="form-control">
                                 <option value="" disabled selected>Selecciona el estado</option>
                                 <option value="1">Completado</option>
                                 <option value="2">En progreso</option>
@@ -457,23 +359,15 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Fecha de pago</label>
-                            <input required type="date" class="form-control">
+                            <input name="txtPaymentDate" required type="date" class="form-control">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Por favor seleccione la fecha de pago</div>
                         </div>
                     </div>
                     <div class="row mb-2 p-2">
                         <div class="col-12">
-                            <label for="">Id de usuario</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el id del usuario">
-                            <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Id de usuario incorrecto</div>
-                        </div>
-                    </div>
-                    <div class="row mb-2 p-2">
-                        <div class="col-12">
-                            <label for="">Id del curso</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el id del curso">
+                            <label for="">Nombre del curso</label>
+                            <input name="txtCourse" required type="text" class="form-control" placeholder="Inserta el id del curso">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Id del curso incorrecto</div>
                         </div>

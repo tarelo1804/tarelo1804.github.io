@@ -1,6 +1,7 @@
-body{
+html, body{
     font-family: "League Spartan", sans-serif;
     height: 100%;
+    margin: 0;
 }
 aside{
     width: 18%;

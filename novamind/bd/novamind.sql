@@ -21,6 +21,7 @@ create table users(
 	primary key (idUser)
 );
 
+
 create table courses(
 	idCourse integer not null auto_increment,
 	name char (30),
@@ -31,6 +32,7 @@ create table courses(
 	publicationDate date,
 	cost decimal(10, 2),
 	startDate date,
+	img varchar(30),
 	idInstructor integer,
 	idCategory integer,
 	primary key(idCourse),
@@ -75,8 +77,9 @@ create table instructors(
 create table categoryInstructors(
 	idCategory integer, 
 	idInstructor integer,
+	 PRIMARY KEY (idCategory, idInstructor),
 	foreign key (idCategory) references categories(idCategory),
-	foreign key (idInstructor) references instrutors(idInstructor)
+	foreign key (idInstructor) references instructors(idInstructor)
 );
 
 create table usersProgress(
@@ -177,6 +180,7 @@ create table payments(
 	amount decimal (10, 2),
 	amountPaid decimal(10,2),
 	paymentMethod text,
+	status enum('Pendiente', 'En Proceso', 'Completado', 'Fallido'),
 	paymentDate datetime,
 	idUser integer,
 	idCourse integer,
@@ -184,6 +188,9 @@ create table payments(
 	foreign key (idUser) references users(idUser),
     foreign key (idCourse) references courses(idcourse)
 );
+
+drop table payments;
+
 
 create table support(
 	idSupport integer not null auto_increment,
@@ -204,10 +211,172 @@ create table support(
 
 /*Seleccionar tablas*/
 
+select * from autentication a ;
+select * from categories c ;
+select * from categoryinstructors c;
+select * from certifications c ;
+select * from courses c ;
+select * from evaluations e ;
+select * from instructors i ;
+select * from interactionscourses i ;
+select * from interactionslessons i ;
+select * from lessons l ;
+select * from lessontypes l ;
+select * from options o ;
+select * from payments p ;
+select * from questions q ;
+select * from support s ;
+select * from users u ;
+select * from usersprogress u ;
 
 
-/*Insertar datos*/
+
+/*INSERTAR DATOS*/
+
+
+/*Crear users*/
 
 insert into users values (0, 'Pamela', 'Garcia', 'Tarelo', 'admin', 'admin123@gmail.com',
-'1234', '2004-11-18', 'default.jpg', '1', '2024-11-21')
+'1234', '2004-11-18', 'default.jpg', '1', '2024-11-21');
+
 select * from users where email = 'admin123@gmail.com' and password = '1234';
+
+insert into users values (0, 'Renzo', 'Caycho', 'Pomachagua', 'renzocp123', 'renzo@gmail.com',
+'123456', '2000-04-03', 'default1.jpg', '0', '2024-11-27');
+
+insert into users values (0, 'Jaime', 'Enriquez', 'Lozano', 'jaimito10', 'enriquezl4567@outlook.com',
+'hola123', '1998-07-23', 'default2.jpg', '1', '2024-11-28');
+
+select * from users order by idUser desc;
+
+/*Crear lessonType*/
+
+insert into lessontypes values(0, 'Juego' );
+
+select * from lessontypes order by idLessonType desc; 
+
+
+/*Crear category*/
+
+insert into categories values(0, 'Fundamentos de la tecnología');
+
+select * from categories order by idCategory desc;
+
+
+/*Crear instructor*/
+
+insert into instructors values (0, '6367418522','Programación', 1, 3);
+
+select instructors.*, users.* from instructors inner join users on instructors.idUser = users.idUser;
+
+
+/*Crear course*/
+insert into courses values(0, 'Introducción a la computadora', 'Aprende los fundamentos de una computadora
+ y componentes', 1, 1, 120,'2024-11-27', 350, '2025-1-1', 'pc1.webp', 1, 1);
+
+select instructors.idInstructor, concat(users.name, ' ', users.ap, ' ', users.am) as fullName
+from instructors inner join users on instructors.idUser = users.idUser;
+
+/*Crear categoryInstructor*/
+insert into categoryinstructors values(1, 1);
+
+
+
+/*Crear lesson*/
+insert into lessons values(0,'¿Qué es una computadora?', 'Descubre qué es una computadora, cómo funciona y para qué sirve.',
+'computadora.webp', 1, 1 );
+
+select lessons.* from lessons inner join lessontypes
+on lessonTypes.idLessonType = lessons.idLessonType inner join courses
+on courses.idCourse = lessons.idCourse ;
+
+
+
+/*Crear userProgress*/
+insert into usersprogress values(0, '1', '2024-11-27', '2025-1-1', 2, 1, 20);
+
+select * from usersprogress order by idProgress desc;
+
+
+
+/*Crear evaluations*/
+insert into evaluations values(0, 'examen', 'Demostraste un buen entendimiento de los conceptos básicos de una computadora. ¡Buen trabajo!',
+10, 2, 1);
+
+select * from evaluations order by idEvaluation desc;
+
+
+
+/*Crear question*/
+insert into questions values(0, '¿Qué es una computadora?', 'opción múltiple', 'Un dispositivo electrónico que procesa datos', 1);
+
+select * from questions order by idQuestion desc;
+
+
+
+/*Crear option*/
+insert into options values (0, 'Un dispositivo mecánico', 0, 1);
+
+select * from options order by idOption desc;
+
+
+
+/*Crear certification*/
+insert into certifications values(0, '2025-1-1', 2, 1, 1);
+
+select * from certifications order by idCertification desc;
+
+
+
+/*Crear interactionLesson*/
+insert into interactionslessons values(0, 'Muy interesante la lección.', '2024-11-25', 'comentario', '10:00:00', 2, 1);
+
+select * from interactionslessons order by idInteractionLesson desc;
+
+
+
+/*Crear interactionCourse*/
+insert into interactionscourses values(0, 'Me gustaría más ejemplos prácticos.', '2024-11-22', 'Comentario', '15:00:00', 1, 2);
+
+select * from interactionscourses order by idInteractionCourse desc;
+
+
+
+/*Crear autentication*/
+insert into autentication values(0, 'abc123', TRUE, '2024-11-27 09:00:00', '2024-11-27 10:00:00', 2);
+
+select * from autentication order by idAutentication desc;
+
+
+
+/*Crear payment*/
+insert into payments values(0, 350, 350, 'Tarjeta de débito', 'Completado' , '2024-11-28 10:24:12', 2, 1);
+
+select payments.* from payments inner join users on payments.idUser = users.idUser
+inner join courses on courses.idCourse = payments.idCourse;
+
+
+
+/*Crear support*/
+insert into support values(0, 'Problema con el pago', 'Mi pago no se refleja.', '2024-11-22',
+'2024-11-23', 'Resuelto', 'Pago validado.', 2, 1, 1);
+
+select * from support order by idSupport desc;
+
+
+
+
+/*Disparador*/
+
+
+
+
+/*Procedimiento de almacenamiento
+
+
+
+
+
+
+
+

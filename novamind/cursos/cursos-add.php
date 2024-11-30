@@ -1,3 +1,19 @@
+<?php session_start();
+    if(!isset($_SESSION['user_data'])){
+        header("Location: ../login.php");
+    }
+    $user_data = $_SESSION['user_data'];
+?>
+
+<?php
+    include "../php/conexion.php";
+    $sql = "select courses.*, categories.name as categoryName, concat(users.name, ' ', users.ap, ' ', users.am) 
+            as instrcutorName from courses inner join instructors on courses.idInstructor = instructors.idInstructor
+            inner join users on instructors.idUser = users.idUser inner join categories on 
+            courses.idCategory = categories.idCategory";
+    $res= $conexion->query("$sql") or die ($conexion->error);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,99 +32,11 @@
 </head>
 <body class="d-flex">
     <!--SIDEBAR-->
-    <aside class="d-flex">
-        <div class="text-white p-3 w-100" id="aside" >
-            <h2 class="h3 text-center" style="font-weight: bold;">NOVAMIND</h2>
-            <nav>   
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a href="../admin/admin.php" class="nav-link text-white">
-                        <i class="bi bi-house-fill"></i>&nbsp;&nbsp;&nbsp;Inicio
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/users.php" class="nav-link text-white">
-                          <i class="bi bi-person-fill"></i>&nbsp;&nbsp;&nbsp;Usuarios
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/cursos.php" class="nav-link text-white">
-                            <i class="bi bi-laptop"></i>&nbsp;&nbsp;&nbsp;Cursos
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/lecciones.php" class="nav-link text-white">
-                            <i class="bi bi-list-task"></i>&nbsp;&nbsp;&nbsp;Lecciones
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/categorias.php" class="nav-link text-white">
-                            <i class="bi bi-bookmark-fill"></i>&nbsp;&nbsp;&nbsp;Categorías
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/instructores.php" class="nav-link text-white">
-                            <i class="bi bi-person-vcard-fill"></i>&nbsp;&nbsp;&nbsp;Instructores
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/pagos.php" class="nav-link text-white">
-                            <i class="bi bi-currency-dollar"></i>&nbsp;&nbsp;&nbsp;Pagos
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
+    <?php include "../layouts/aside.php"; ?>
     <!--END SIDEBAR-->
     <!--MAIN CONTENT-->
     <main class="flex-grow-1 " >
-        <header class="pt-3">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <a href="" class="navbar-brand">Mi Dashboard</a>
-                    
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
-                            <li class="navbar-item mx-4">
-                                <button type="button" class="btn btn-ligth position-relative">
-                                    <i class="bi bi-bell-fill"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                      99+
-                                      <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                  </button>
-                                
-                            </li>
-                            <li class="navbar-item mx-1">
-                                <img style="border-radius: 50%; border: 3px solid rgb(0, 90, 0); width:50px; 
-                                height: 50px;" src="../img/admin.jpg" alt="">
-                            </li>
-                            <li class="navbar-item droptown">
-                                <a href="" class="nav-link dropdown-toggle" id="userDropdown" role="button" 
-                                data-bs-toggle="dropdown" aria-expanded="false">Administrador</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-person-fill"></i> 
-                                            Perfil</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-
-                                    </li>
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-box-arrow-left"></i>
-                                            Cerrar Sesión</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+    <?php include "../layouts/header.php"; ?>
         <section class="container mt-4 p-4">
             
             <!--TITLE SECTION-->
@@ -125,19 +53,19 @@
                 <div class="row p-4">
                     <div class="col-4">
                         <label for="">Nombre</label>
-                        <input required min="18" type="text" class="form-control" placeholder="Inserta el nombre del curso">
+                        <input name="txtName" required min="18" type="text" class="form-control" placeholder="Inserta el nombre del curso">
                         <div class="valid-feedback">Correcto</div>
                         <div class="invalid-feedback">Nombre incorrecto</div>
                     </div>
                     <div class="col-4">
                      <label for="">Descripción</label>
-                        <input required type="text" class="form-control" placeholder="Inserta la descripción">
+                        <input name="txtDescription" required type="text" class="form-control" placeholder="Inserta la descripción">
                         <div class="valid-feedback">Correcto</div>
                         <div class="invalid-feedback">Descripción incorrecta</div>
                     </div>
                     <div class="col-4">
                         <label for="">Imagen</label>
-                        <input required type="file" class="form-control" >
+                        <input name="txtFile" required type="file" class="form-control" >
                         <div class="valid-feedback">Correcto</div>
                         <div class="invalid-feedback">Por favor seleccione una imagen</div>
                        </div>
@@ -145,7 +73,7 @@
                 <div class="row p-4">
                     <div class="col-6">
                         <label for="">Nivel</label>
-                        <select required class="form-control">
+                        <select name="txtLevel" required class="form-control">
                             <option value="" disabled selected>Selecciona el nivel</option>
                             <option value="1">Basico</option>
                             <option value="2">Intermedio</option>
@@ -156,7 +84,7 @@
                     </div>
                     <div class="col-6">
                         <label for="">Estado</label>
-                        <select required class="form-control" >
+                        <select name="txtStatus" required class="form-control" >
                             <option value="" disabled selected>Selecciona el estado</option>
                             <option value="activo">Activo</option>
                             <option value="inactivo">Inactivo</option>
@@ -168,20 +96,25 @@
                 <div class="row p-4">
                     <div class="col-6">
                         <label for="">Duración(horas)</label>
-                        <input required type="number" class="form-control" placeholder="Inserta la duración del curso">
+                        <input name="txtDuration" required type="number" class="form-control" placeholder="Inserta la duración del curso">
                         <div class="valid-feedback">Correcto</div>
                         <div class="invalid-feedback">Duración incorrecta</div>
                     </div>
                     <div class="col-6">
                         <label for="">Categoría</label>
-                        <select required class="form-control">
-                            <option value="" disabled selected>Selecciona la categoría</option>
-                            <option value="1">Fundamentos de la tecnología</option>
-                            <option value="2">Productividad digital</option>
-                            <option value="3">Ciberseguridad</option>
-                            <option value="4">Redes</option>
-                            <option value="5">Programación</option>
-                            <option value="6">Inteligencia artificial</option>
+                        <select name="txtCategory" required class="form-control">
+                            <?php
+                                // Consulta para obtener las categorías
+                                $query = "select idCategory, name from categories"; 
+                                $result = $conexion->query($query);
+
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                    // Aquí estamos asignando el idCategoria al value y el nombre a lo visible
+                                        echo '<option value="' . $row['idCategory'] . '">' . $row['name'] . '</option>';
+                                    }
+                                }
+                            ?>
                         </select>
                         <div class="valid-feedback">Correcto</div>
                         <div class="invalid-feedback">Por favor seleccione la categoría</div>
@@ -189,22 +122,37 @@
                 </div>
                 <div class="row p-4">
                     <div class="col-12">
-                        <label for="">Nombre del instructor</label>
-                        <input required type="text" class="form-control" placeholder="Inserta el nombre del instrutor que impartirá el curso">
+                        <label for=""> Nombre del instructor</label>
+                        <select name="txtInstructor" required class="form-control">
+                            <option value="" disabled selected>Selecciona el instructor</option>
+                            <?php
+                            // Consulta para obtener los instructores
+                            $sql_instructors = "select instructors.idInstructor, concat(users.name, ' ', users.ap, ' ', 
+                            users.am) as fullName from instructors inner join users on instructors.idUser = users.idUser";
+
+                            $res_instructors = $conexion->query($sql_instructors);
+
+                            // Llenar el select con los resultados
+                             while ($row = $res_instructors->fetch_assoc()) {
+                                // El value es el idInstructor, y el texto visible es el nombre completo del instructor
+                                echo "<option value='{$row['idInstructor']}'>{$row['fullName']}</option>";
+                            }
+                            ?>
+                        </select>
                         <div class="valid-feedback">Correcto</div>
-                        <div class="invalid-feedback">Nombre incorrecto</div>
+                        <div class="invalid-feedback">Por favor selecciona un instructor</div>
                     </div>
                 </div>
                 <div class="row p-4">
                     <div class="col-6">
                      <label for="">Fecha de inicio</label>
-                        <input required type="date" class="form-control">
+                        <input name="txtStartDate" required type="date" class="form-control">
                         <div class="valid-feedback">Correcto</div>
                         <div class="invalid-feedback">Fecha incorrecta</div>
                     </div>
                     <div class="col-6">
                         <label for="">Costo</label>
-                           <input required type="number" class="form-control" placeholder="Inserta el costo del curso">
+                           <input name="txtCost" required type="number" class="form-control" placeholder="Inserta el costo del curso">
                            <div class="valid-feedback">Correcto</div>
                            <div class="invalid-feedback">Costo incorrecto</div>
                     </div>
@@ -218,7 +166,6 @@
                         </button>
                     </div>
             </form>
-            
             <!--END DATA-->
         </section>
     </main>

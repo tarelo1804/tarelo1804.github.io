@@ -1,3 +1,17 @@
+<?php session_start();
+    if(!isset($_SESSION['user_data'])){
+        header("Location: ../login.php");
+    }
+    $user_data = $_SESSION['user_data'];
+?>
+
+<?php
+    include "../php/conexion.php";
+    $sql = "select instructors.*, users.* from instructors inner join users on 
+    instructors.idUser = users.idUser";
+    $res= $conexion->query("$sql") or die ($conexion->error);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,99 +33,11 @@
 </head>
 <body class="d-flex">
     <!--SIDEBAR-->
-    <aside class="d-flex">
-        <div class="text-white p-3 vh-100 w-100" id="aside" >
-            <h2 class="h3 text-center" style="font-weight: bold;">NOVAMIND</h2>
-            <nav>   
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a href="../admin/admin.php" class="nav-link text-white">
-                        <i class="bi bi-house-fill"></i>&nbsp;&nbsp;&nbsp;Inicio
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/users.php" class="nav-link text-white">
-                          <i class="bi bi-person-fill"></i>&nbsp;&nbsp;&nbsp;Usuarios
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/cursos.php" class="nav-link text-white">
-                            <i class="bi bi-laptop"></i>&nbsp;&nbsp;&nbsp;Cursos
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/lecciones.php" class="nav-link text-white">
-                            <i class="bi bi-list-task"></i>&nbsp;&nbsp;&nbsp;Lecciones
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/categorias.php" class="nav-link text-white">
-                            <i class="bi bi-bookmark-fill"></i>&nbsp;&nbsp;&nbsp;Categorías
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/instructores.php" class="nav-link text-white">
-                            <i class="bi bi-person-vcard-fill"></i>&nbsp;&nbsp;&nbsp;Instructores
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/pagos.php" class="nav-link text-white">
-                            <i class="bi bi-currency-dollar"></i>&nbsp;&nbsp;&nbsp;Pagos
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
+    <?php include "../layouts/aside.php"; ?>
     <!--END SIDEBAR-->
     <!--MAIN CONTENT-->
     <main class="flex-grow-1 " >
-        <header class="pt-3">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <a href="" class="navbar-brand">Mi Dashboard</a>
-                    
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
-                            <li class="navbar-item mx-4">
-                                <button type="button" class="btn btn-ligth position-relative">
-                                    <i class="bi bi-bell-fill"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                      99+
-                                      <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                  </button>
-                                
-                            </li>
-                            <li class="navbar-item mx-1">
-                                <img style="border-radius: 50%; border: 3px solid rgb(0, 90, 0); width:50px; 
-                                height: 50px;" src="../img/admin.jpg" alt="">
-                            </li>
-                            <li class="navbar-item droptown">
-                                <a href="" class="nav-link dropdown-toggle" id="userDropdown" role="button" 
-                                data-bs-toggle="dropdown" aria-expanded="false">Administrador</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-person-fill"></i> 
-                                            Perfil</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-
-                                    </li>
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-box-arrow-left"></i>
-                                            Cerrar Sesión</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+    <?php include "../layouts/header.php"; ?>
         <section class="container mt-4 p-4">
             
             <!--TITLE SECTION-->
@@ -136,21 +62,38 @@
                         <th scope="col">Teléfono</th>
                         <th scope="col">Especialidad</th>
                         <th scope="col">Estatus</th>
-                        <th scope="col">Categorías</th>
                         <th></th>
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                            while($fila = mysqli_fetch_array($res)){
+
+                        ?>
                       <tr>
-                        <th scope="row" style="text-align: center;">1</th>
-                        <td>Alberto</td>
-                        <td>Quiñonez</td>
-                        <td>Espinoza</td>
-                        <td>albertoqe@gmail.com</td>
-                        <td>656-235-75-09</td>
-                        <td>Programación</td>
-                        <td>Activo</td>
-                        <td>Redes,Programación</td>
+                      <td scope="row" style="text-align: center;">
+                      <?php echo $fila['idInstructor'] ?> </td>
+                        <td>
+                        <?php echo $fila['name'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['ap'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['am'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['email'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['phone'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['speciality'] ?>
+                        </td>
+                        <td>
+                        <?php echo $fila['status'] ?>
+                        </td>
                         <td>
                             <button id="eliminar" type="button" class="btn btn-sm mx-1 btnEliminarInstructor">
                                 <i class="bi bi-trash3-fill"></i>
@@ -160,44 +103,7 @@
                             </button>
                         </td>
                       </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">1</th>
-                        <td>Paulina</td>
-                        <td>Salazar</td>
-                        <td>Pacheco</td>
-                        <td>pausalzarpacheco@outlook.com</td>
-                        <td>636-742-41-77</td>
-                        <td>Diseño</td>
-                        <td>Activo</td>
-                        <td>Diseño</td>
-                        <td>
-                            <button id="eliminar" type="button" class="btn btn-sm mx-1 btnEliminarInstructor">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>   
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarInstructor">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">1</th>
-                        <td>Horacio</td>
-                        <td>Porras</td>
-                        <td>Rascón</td>
-                        <td>porrasrascon12@gmail.com</td>
-                        <td>636-412-88-37</td>
-                        <td>Programación</td>
-                        <td>Activo</td>
-                        <td>Redes,Programación</td>
-                        <td>
-                            <button id="eliminar" type="button" class="btn btn-sm mx-1 btnEliminarInstructor">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>   
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarInstructor">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
+                      <?php  } ?>
                     </tbody>
                   </table> 
             </div>
@@ -220,19 +126,19 @@
                     <div class="row mb-2 p-2">
                         <div class="col-4">
                             <label for="">Nombre</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <input name="txtName" required type="text" class="form-control" placeholder="Inserta el nombre">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Nombre incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Apellido Paterno</label>
-                            <input  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
+                            <input name="txtAp"  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Apellido paterno incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Apellido Materno</label>
-                            <input  required type="text" class="form-control" placeholder="Inserta el apellido materno">
+                            <input name="txtAm"  required type="text" class="form-control" placeholder="Inserta el apellido materno">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Apellido materno incorrecto</div>
                         </div>
@@ -241,13 +147,13 @@
                     <div class="row mb-2 p-2">
                         <div class="col-6">
                             <label for="">Correo Electrónico</label>
-                            <input required type="email" class="form-control" placeholder="Inserta el correo electrónico">
+                            <input name="txtEmail" required type="email" class="form-control" placeholder="Inserta el correo electrónico">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Correo electrónico incorrecto</div>
                         </div>
                         <div class="col-6">
                             <label for="">Teléfono</label>
-                            <input required min="18" type="email" class="form-control" placeholder="Inserta el teléfono">
+                            <input name="txtPhone" required min="18" type="email" class="form-control" placeholder="Inserta el teléfono">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Teléfono incorrecto</div>
                         </div>
@@ -256,7 +162,7 @@
                         <div class="col-12">
                             <label for="">Especialidad</label>
                             <br>
-                            <fieldset id="especialidad1">
+                            <fieldset name="txtSpeciality" id="especialidad1">
                                 <input type="checkbox" name="especialidades[]" value="1"> Tecnología &nbsp;&nbsp;&nbsp;
                                 <input type="checkbox" name="especialidades[]" value="2"> Productividad digital &nbsp;&nbsp;&nbsp;
                                 <input type="checkbox" name="especialidades[]" value="3"> Ciberseguridad &nbsp;&nbsp;&nbsp;
@@ -271,7 +177,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Estatus</label>
-                            <select required class="form-control">
+                            <select name="txtStatus" required class="form-control">
                                 <option value="" disabled selected>Selecciona el estatus</option>
                                 <option value="1">Activo</option>
                                 <option value="2">Inactivo</option>
@@ -284,7 +190,7 @@
                         <div class="col-12">
                             <label for="">Categoría del curso</label>
                             <br>
-                            <fieldset id="categoria1">
+                            <fieldset name="txtCategory" id="categoria1">
                                 <input type="checkbox" name="categorias[]" value="1"> Tecnología &nbsp;&nbsp;&nbsp;
                                 <input type="checkbox" name="categorias[]" value="2"> Productividad digital &nbsp;&nbsp;&nbsp;
                                 <input type="checkbox" name="categorias[]" value="3"> Ciberseguridad &nbsp;&nbsp;&nbsp;
@@ -323,19 +229,19 @@
                     <div class="row mb-2 p-2">
                         <div class="col-4">
                             <label for="">Nombre</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre">
+                            <input name="txtName" required type="text" class="form-control" placeholder="Inserta el nombre">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Nombre incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Apellido Paterno</label>
-                            <input  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
+                            <input name="txtAp"  required type="text" class="form-control" placeholder="Inserta el apellido paterno">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Apellido paterno incorrecto</div>
                         </div>
                         <div class="col-4">
                             <label for="">Apellido Materno</label>
-                            <input  required type="text" class="form-control" placeholder="Inserta el apellido materno">
+                            <input name="txtAm"  required type="text" class="form-control" placeholder="Inserta el apellido materno">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Apellido materno incorrecto</div>
                         </div>
@@ -344,13 +250,13 @@
                     <div class="row mb-2 p-2">
                         <div class="col-6">
                             <label for="">Correo Electrónico</label>
-                            <input required type="email" class="form-control" placeholder="Inserta el correo electrónico">
+                            <input name="txtEmail" required type="email" class="form-control" placeholder="Inserta el correo electrónico">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Correo electrónico incorrecto</div>
                         </div>
                         <div class="col-6">
                             <label for="">Teléfono</label>
-                            <input required min="18" type="email" class="form-control" placeholder="Inserta el teléfono">
+                            <input name="txtPhone" required min="18" type="email" class="form-control" placeholder="Inserta el teléfono">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Teléfono incorrecto</div>
                         </div>
@@ -359,7 +265,7 @@
                         <div class="col-12">
                             <label for="">Especialidad</label>
                             <br>
-                            <fieldset id="especialidad2">
+                            <fieldset name="txtSpeciality" id="especialidad2">
                                 <input type="checkbox" name="especialidades[]" value="1"> Tecnología &nbsp;&nbsp;&nbsp;
                                 <input type="checkbox" name="especialidades[]" value="2"> Productividad digital &nbsp;&nbsp;&nbsp;
                                 <input type="checkbox" name="especialidades[]" value="3"> Ciberseguridad &nbsp;&nbsp;&nbsp;
@@ -374,7 +280,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-12">
                             <label for="">Estatus</label>
-                            <select required class="form-control">
+                            <select name="txtStatus" required class="form-control">
                                 <option value="" disabled selected>Selecciona el estatus</option>
                                 <option value="1">Activo</option>
                                 <option value="2">Inactivo</option>
@@ -386,7 +292,7 @@
                     <div class="col-12">
                         <label for="">Categoría del curso</label>
                         <br>
-                        <fieldset id="categoria2">
+                        <fieldset name="txtCategory" id="categoria2">
                             <input type="checkbox" name="categorias[]" value="1"> Tecnología &nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="categorias[]" value="2"> Productividad digital &nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="categorias[]" value="3"> Ciberseguridad &nbsp;&nbsp;&nbsp;

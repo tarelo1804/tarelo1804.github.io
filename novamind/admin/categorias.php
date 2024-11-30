@@ -1,3 +1,16 @@
+<?php session_start();
+    if(!isset($_SESSION['user_data'])){
+        header("Location: ../login.php");
+    }
+    $user_data = $_SESSION['user_data'];
+?>
+
+<?php
+    include "../php/conexion.php";
+    $sql = "select * from categories order by idCategory desc";
+    $res= $conexion->query("$sql") or die ($conexion->error);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,99 +32,11 @@
 </head>
 <body class="d-flex">
     <!--SIDEBAR-->
-    <aside class="d-flex">
-        <div class="text-white p-3 vh-100 w-100" id="aside" >
-            <h2 class="h3 text-center" style="font-weight: bold;">NOVAMIND</h2>
-            <nav>   
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a href="../admin/admin.php" class="nav-link text-white">
-                        <i class="bi bi-house-fill"></i>&nbsp;&nbsp;&nbsp;Inicio
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/users.php" class="nav-link text-white">
-                          <i class="bi bi-person-fill"></i>&nbsp;&nbsp;&nbsp;Usuarios
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/cursos.php" class="nav-link text-white">
-                            <i class="bi bi-laptop"></i>&nbsp;&nbsp;&nbsp;Cursos
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/lecciones.php" class="nav-link text-white">
-                            <i class="bi bi-list-task"></i>&nbsp;&nbsp;&nbsp;Lecciones
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/categorias.php" class="nav-link text-white">
-                            <i class="bi bi-bookmark-fill"></i>&nbsp;&nbsp;&nbsp;Categorías
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/instructores.php" class="nav-link text-white">
-                            <i class="bi bi-person-vcard-fill"></i>&nbsp;&nbsp;&nbsp;Instructores
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../admin/pagos.php" class="nav-link text-white">
-                            <i class="bi bi-currency-dollar"></i>&nbsp;&nbsp;&nbsp;Pagos
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
+    <?php include "../layouts/aside.php"; ?>
     <!--END SIDEBAR-->
     <!--MAIN CONTENT-->
     <main class="flex-grow-1 " >
-        <header class="pt-3">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <a href="" class="navbar-brand">Mi Dashboard</a>
-                    
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
-                            <li class="navbar-item mx-4">
-                                <button type="button" class="btn btn-ligth position-relative">
-                                    <i class="bi bi-bell-fill"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                      99+
-                                      <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                  </button>
-                                
-                            </li>
-                            <li class="navbar-item mx-1">
-                                <img style="border-radius: 50%; border: 3px solid rgb(0, 90, 0); width:50px; 
-                                height: 50px;" src="../img/admin.jpg" alt="">
-                            </li>
-                            <li class="navbar-item droptown">
-                                <a href="" class="nav-link dropdown-toggle" id="userDropdown" role="button" 
-                                data-bs-toggle="dropdown" aria-expanded="false">Administrador</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-person-fill"></i> 
-                                            Perfil</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-
-                                    </li>
-                                    <li>
-                                        <a href="" class="dropdown-item">
-                                            <i class="bi bi-box-arrow-left"></i>
-                                            Cerrar Sesión</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <?php include "../layouts/header.php"; ?>
         <section class="container mt-4 p-4">
             
             <!--TITLE SECTION-->
@@ -135,9 +60,17 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                            while($fila = mysqli_fetch_array($res)){
+
+                        ?>
                       <tr>
-                        <th scope="row" style="text-align: center;">1</th>
-                        <td>Fundamentos de la tecnología</td>
+                      <td scope="row" style="text-align: center;">
+                            <?php echo $fila['idCategory'] ?> </td>
+                        <td> 
+                        <td>
+                            <?php echo $fila['name'] ?>
+                        </td>
                         <td>
                             <button id="eliminar" class="btn btn-sm mx-1 btnEliminarCategoria" >
                                 <i class="bi bi-trash3-fill"></i>
@@ -147,66 +80,7 @@
                             </button>
                         </td>
                       </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">2</th>
-                        <td>Productividad digital</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarCategoria">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>   
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarCategoria" >
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">3</th>
-                        <td>Ciberseguridad</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarCategoria">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>   
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarCategoria">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">4</th>
-                        <td>Redes</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarCategoria">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>   
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarCategoria">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">5</th>
-                        <td>Programación</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarCategoria">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>   
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarCategoria">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align: center;">6</th>
-                        <td>Inteligencia artificial</td>
-                        <td>
-                            <button id="eliminar" class="btn btn-sm mx-1 btnEliminarCategoria">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>   
-                            <button id="editar" class="btn btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#editarCategoria">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                      </tr>
+                      <?php  } ?>
                     </tbody>
                   </table> 
             </div>
@@ -229,7 +103,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-4">
                             <label for="">Nombre de la categoría</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre de la categoría">
+                            <input name="txtName" required type="text" class="form-control" placeholder="Inserta el nombre de la categoría">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Nombre incorrecto</div>
                         </div>
@@ -260,7 +134,7 @@
                     <div class="row mb-2 p-2">
                         <div class="col-4">
                             <label for="">Nombre de la categoría</label>
-                            <input required type="text" class="form-control" placeholder="Inserta el nombre de la categoría">
+                            <input name="txtName" required type="text" class="form-control" placeholder="Inserta el nombre de la categoría">
                             <div class="valid-feedback">Correcto</div>
                             <div class="invalid-feedback">Nombre incorrecto</div>
                         </div>
