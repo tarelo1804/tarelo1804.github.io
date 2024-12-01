@@ -196,6 +196,7 @@
         flex-direction: row; /* Los botones se alinean en fila */
         align-items: center;
         justify-content: center;
+        margin: 20px;
     }
     .buttonMemo {
         height: 100px;
@@ -204,9 +205,8 @@
         margin: 10px;
     }
     .estadisticas {
-        width: 80%; /* Ajustar el ancho para que no quede demasiado estrecho */
+        width: 100%; /* Ajustar el ancho para que no quede demasiado estrecho */
         font-size: 1.8rem; /* Tamaño de fuente adecuado para tablets */
-        padding: 12px 25px;
         margin: 20px auto;
     }
     .imgMemo {
@@ -383,9 +383,10 @@
     header{
         /*background-color: aquamarine;*/
     }
-    *{
+    * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
     body{
         background-color:  #1F2833;
@@ -459,6 +460,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        display: flex;
         height: auto;
         padding: 0px;
         text-align: center;
@@ -471,6 +473,7 @@
         justify-content: center;
         align-items: center;
         height: auto;
+        flex-direction: column;
     }
     .content > img {
         padding-top:30px;

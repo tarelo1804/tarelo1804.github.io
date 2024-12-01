@@ -18,11 +18,11 @@
                             <i class="bi bi-laptop"></i>&nbsp;&nbsp;&nbsp;Cursos
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a href="../admin/lecciones.php" class="nav-link text-white">
                             <i class="bi bi-list-task"></i>&nbsp;&nbsp;&nbsp;Lecciones
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a href="../admin/categorias.php" class="nav-link text-white">
                             <i class="bi bi-bookmark-fill"></i>&nbsp;&nbsp;&nbsp;Categorías

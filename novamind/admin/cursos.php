@@ -63,7 +63,7 @@
                             <h5 id="compu" class="card-title"><?php echo $fila['name'] ?></h5>
                             <p class="card-text"><?php echo $fila['description'] ?></p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
-                                <a id="boton" href="#" class="btn btn-sm mx-1">Ver</a>
+                                <a id="boton" href="./lecciones.php" class="btn btn-sm mx-1">Ver</a>
                                 <div class="d-flex ms-auto">
                                     <button id="eliminar" class="btn btn-sm mx-1 btnEliminar">
                                         <i class="bi bi-trash3-fill"></i>
